@@ -1,9 +1,7 @@
 # Note: You have to define SSH_PRIVATE_KEY, SSH_PORT and SSH_HOSTDEST with gitlab variables.
 variables:
-  SSH_PRIVATE_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCu7g/L2w3hagkDpS0V77BKAq9WLImKBUi9nWY9tg6PQFZ0YxIEJoAfAR+ytigAiF3c1tzTnHdZfcjPjPkqUJYgLdnMjSvfpj8shELqb+QglhL5bp6iSXnDrjZ5XLQSORY1bEB8r3k1bOzADcd83tZki9yUZ/4IvREXSYm1P6mp7R/HMCrkf82g3WSyDPXfNg+LQD3R59iK5f0W+ihMx5Q9LPrsfDI2WNi7cfBliUa3Yj/wcaJDA3NzhsTuPbp62YU5bqOaJPFO/N23Gn7l2IuLR7R3+8cMyP8cZ7F0926+5vp6e446y16aZP4l1laNP8ZqHHgEn9KV754W00LBy/O5HWwNx0xP+KXm3dW5ygp43HGyLbXZEdigIWrWUmAXswmQg+YoasVS9d5Cxn5QWpQlD/HM1Y0Nzs4VyL28Mo6wTgzbcwh2nBXRGmbZ5U3kZjYDLW7hqzRh0ktl/ilMPtoA0LUKpWJ0AYCZYsQbO3/qI5pI74uTN5oo6FeG+SJCY/dlj2D7K6lVfvNXk4EIHQcli/2bnzWFMjn5XrB4p3eRDGBdHlBr+52tLq26T3/8YkQNAIjw4iBHpQOMQYL3b6ZziIXrlbUvQ+eb1ljara5BGGntZxwVuIau6fsuShM7K4CxRhMUu+LW53wMIJOVayo7bMvCMz9bpU4tEUA4ocRQmw== tim.duckett@finleap.com
-  SSH_PORT: 22
-  SSH_HOSTDEST: 172.16.1.1
-
+  AWS_ACCESS_KEY_ID: "AKIA3WVT42PPBWCXOTV3"
+  AWS_SECRET_ACCESS_KEY: "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”
 stages:
   - build
   - deploy
@@ -22,13 +20,9 @@ build:
   only:
   - master
 deploy:
-  stage: deploy
-  image: dinofizz/rsync-ssh
+  image: python:latest
   script:
-  - echo "${SSH_PRIVATE_KEY}" > id_rsa
-  - chmod 700 id_rsa
-  - mkdir "${HOME}/.ssh"
-  - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
-  - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public_html/ "${SSH_USER_HOST_LOCATION}"
+  - pip install awscli
+  - aws s3 cp ./ s3://www.finleap.tech.s3-website.eu-central-1.amazonaws.com/ --recursive --exclude "*" --include "*.html"
   only:
   - master
