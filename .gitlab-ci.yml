@@ -1,23 +1,34 @@
-image: jguyomard/hugo-builder:latest
-
 # Note: You have to define SSH_PRIVATE_KEY, SSH_PORT and SSH_HOSTDEST with gitlab variables.
 variables:
   SSH_PRIVATE_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCu7g/L2w3hagkDpS0V77BKAq9WLImKBUi9nWY9tg6PQFZ0YxIEJoAfAR+ytigAiF3c1tzTnHdZfcjPjPkqUJYgLdnMjSvfpj8shELqb+QglhL5bp6iSXnDrjZ5XLQSORY1bEB8r3k1bOzADcd83tZki9yUZ/4IvREXSYm1P6mp7R/HMCrkf82g3WSyDPXfNg+LQD3R59iK5f0W+ihMx5Q9LPrsfDI2WNi7cfBliUa3Yj/wcaJDA3NzhsTuPbp62YU5bqOaJPFO/N23Gn7l2IuLR7R3+8cMyP8cZ7F0926+5vp6e446y16aZP4l1laNP8ZqHHgEn9KV754W00LBy/O5HWwNx0xP+KXm3dW5ygp43HGyLbXZEdigIWrWUmAXswmQg+YoasVS9d5Cxn5QWpQlD/HM1Y0Nzs4VyL28Mo6wTgzbcwh2nBXRGmbZ5U3kZjYDLW7hqzRh0ktl/ilMPtoA0LUKpWJ0AYCZYsQbO3/qI5pI74uTN5oo6FeG+SJCY/dlj2D7K6lVfvNXk4EIHQcli/2bnzWFMjn5XrB4p3eRDGBdHlBr+52tLq26T3/8YkQNAIjw4iBHpQOMQYL3b6ZziIXrlbUvQ+eb1ljara5BGGntZxwVuIau6fsuShM7K4CxRhMUu+LW53wMIJOVayo7bMvCMz9bpU4tEUA4ocRQmw== tim.duckett@finleap.com
   SSH_PORT: 22
   SSH_HOSTDEST: 172.16.1.1
 
-before_script:
-  - BUILD_DIR="/tmp/build"
-
-  # Run ssh-agent and add SSH key stored in SSH_PRIVATE_KEY variable
-  - eval `ssh-agent -s`
-  - echo "$SSH_PRIVATE_KEY" | ssh-add /dev/stdin
-  # For Docker builds disable host key checking - http://doc.gitlab.com/ce/ci/ssh_keys/README.html
-  - mkdir -p ~/.ssh
-  - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-
-deploy:
+stages:
+  - build
+  - deploy
+build:
+  stage: build
+  image: jguyomard/hugo-builder:latest
   script:
-    - hugo --destination "$BUILD_DIR"
-    - minify -r -o $BUILD_DIR/ $BUILD_DIR/
-    - rsync -rv -e "ssh -p $SSH_PORT" "$BUILD_DIR"/ "$SSH_HOSTDEST" --checksum
+  - git submodule update --init --recursive
+  - hugo -d public_html -b "${BLOG_URL}"
+  cache:
+    paths:
+    - public_html
+  artifacts:
+    paths:
+    - public_html
+  only:
+  - master
+deploy:
+  stage: deploy
+  image: dinofizz/rsync-ssh
+  script:
+  - echo "${SSH_PRIVATE_KEY}" > id_rsa
+  - chmod 700 id_rsa
+  - mkdir "${HOME}/.ssh"
+  - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+  - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public_html/ "${SSH_USER_HOST_LOCATION}"
+  only:
+  - master
