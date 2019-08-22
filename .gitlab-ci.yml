@@ -1,6 +1,6 @@
 # Note: You have to define SSH_PRIVATE_KEY, SSH_PORT and SSH_HOSTDEST with gitlab variables.
 variables:
-  S3_BUCKET_NAME: "www.finleap.tech.s3.amazonaws.com"
+  S3_BUCKET_NAME: "www.finleap.tech"
 stages:
   - build
   - deploy
