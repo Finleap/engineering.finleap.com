@@ -28,6 +28,7 @@ deploy:
   - master
 
 pages:
+  stage: deploy
   image: alpine:latest
   script:
   - mkdir -p ./public
