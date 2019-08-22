@@ -26,13 +26,3 @@ deploy:
   - aws s3 cp ./ s3://$S3_BUCKET_NAME/ --recursive --exclude "*" --include "*.html"
   only:
   - master
-
-pages:
-  stage: deploy
-  image: alpine:latest
-  script:
-  - mkdir -p ./public
-  - cp ./*.html ./public/
-  artifacts:
-    paths:
-    - public
