@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deploy
+build:
+  stage: build
+  image: dinofizz/hugo
+  script:
+  - git submodule update --init --recursive
+  - hugo -d public_html -b "${BLOG_URL}"
+  cache:
+    paths:
+    - public_html
+  artifacts:
+    paths:
+    - public_html
+  only:
+  - master
+deploy:
+  stage: deploy
+  image: dinofizz/rsync-ssh
+  script:
+  - echo "${SSH_PRIVATE_KEY}" > id_rsa
+  - chmod 700 id_rsa
+  - mkdir "${HOME}/.ssh"
+  - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+  - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public_html/ "${SSH_USER_HOST_LOCATION}"
+  only:
+  - master
