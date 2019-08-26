@@ -1,7 +1,7 @@
 # Note: You have to define SSH_PRIVATE_KEY, SSH_PORT and SSH_HOSTDEST with gitlab variables.
 variables:
   PROD_S3_BUCKET_NAME: "www.finleap.tech"
-  STAGE_S3_BUCKET_NAME: "staging.finleap.tech"
+  STAGING_S3_BUCKET_NAME: "staging.finleap.tech"
   PROD_BLOG_URL: "https://www.finleap.tech"
   STAGING_BLOG_URL: "https://staging.finleap.tech"
 stages:
@@ -29,7 +29,7 @@ stage_build:
   image: jguyomard/hugo-builder:latest
   script:
   - git submodule update --init --recursive
-  - hugo -d staging_html -b "${STAGING_BLOG_URL}"
+  - hugo -d staging_html -b "${STAGING_BLOG_URL}" --environment staging
   cache:
     paths:
     - staging_html
@@ -53,6 +53,6 @@ stage:
   image: python:latest
   script:
   - pip install awscli
-  - aws s3 cp ./staging_html s3://$STAGE_S3_BUCKET_NAME/ --recursive --acl public-read
+  - aws s3 cp ./staging_html s3://$STAGING_S3_BUCKET_NAME/ --recursive --acl public-read
   except:
   - master
