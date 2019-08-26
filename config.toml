@@ -2,77 +2,69 @@ baseURL = "https://www.finleap.tech"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Finleap Tech Blog"
-theme = "finleap-theme"
+#theme = "finleap-theme"
+theme = "ezhil"
 
-# Google analytics
-# googleAnalytics = "UA-123456789-1"
+# Enable syntax highlighting.
+pygmentsstyle = "vs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
 
-# Disqus comments
-# disqusShortname = "yourdiscussshortname"
-
-# Syntax highlighting
-pygmentsCodefences = true
-pygmentsStyle = "pygments"
-
-[taxonomies]
-  tag = "tags"
-
-[permalinks]
-  post = "/:filename/"
+# Your Google analytics code.
+# googleAnalytics = "UA-123-45"
+# Your Disqus sortname.
+# disqusShortname = "localhost"
 
 [params]
-  # Header text, can be markdown
-  project_name = "The Finleap tech blog"
-  project_tagline = "Interesting things that the finleap build team are doing"
+	# Blog subtitle which appears below blog title. Supports markdown.
+	subtitle = "Interesting things that the Finleap tech team have been doing"
+	# Number of posts to show in recent posts list (Optional). Defaults to 10.
+	recentPostsCount = 10
+	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
+	excludedTypes = ["page"]
+	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
+	disableDisqusTypes = ["page"]
+	# If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
+	featherIconsCDN = true
 
-  # Date format for post list and single pages
-  # For more date formats see https://gohugo.io/functions/format/
-  dateFormat = "02 Jan 2006"
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-  # Footer text, can be markdown
-  footer = "Made with [Hugo](https://gohugo.io/)"
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
 
-  # If true, the CSS/JS for Katex math typesetting are enabled
-  katex = true
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
 
-  # Breakpoints
-  large_breakpoint = "64em"
-  medium_breakpoint = "42em"
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
 
-  # Header colors
-  header_heading_color = "#fff"
-  header_background_color = "#159957"
-  header_background_color_secondary = "#155799"
+# Social media links which shows up on site header.
+# Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/finleap"
 
-  # Text colors
-  section_headings_color = "#159957"
-  body_text_color = "#606c71"
-  body_link_color = "#1e6bb8"
-  blockquote_text_color = "#819198"
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/finleap"
 
-  # Code colors
-  code_background_color = "#f3f6fa"
-  code_text_color = "#567482"
+[[params.social]]
+name = "Instagram"
+icon = "instagram"
+url = "https://www.instagram.com/finleap_gmbh"
 
-  # Border colors
-  border_color = "#dce6f0"
-  table_border_color = "#e9ebec"
-  hr_border_color = "#eff0f1"
-
-[menu]
-  [[menu.nav]]
-    name = "Blog"
-    url = "/"
-    weight = 1
-  [[menu.nav]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 2
-  [[menu.nav]]
-    name = "About"
-    url = "/about/"
-    weight = 3
-  [[menu.nav]]
-    name = "RSS"
-    url = "/index.xml"
-    weight = 4
+# Enable tags.
+[taxonomies]
+   tag = "tags"
