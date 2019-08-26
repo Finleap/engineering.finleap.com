@@ -9,13 +9,28 @@
 		{{ else }}
 			<div class="post-header">
 				<h1 class="title">{{ .Title }}</h1>
-				<div class="meta">{{ dateFormat "2 Jan 2006" .Date }}</div>
+				<div class="meta">
+					{{ dateFormat "2 Jan 2006" .Date }}
+				</div>
 		</div>
 		{{ end }}
+
 
 		<div class="markdown">
 			{{ .Content }}
 		</div>
+
+		<nav class="nav">
+			{{ with .Params.tags }}
+			<ul class="flat" id="tags">
+				TAGS
+				{{ range . }}
+					<li> <small><a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }} </a> &mdash; </small></li>
+				{{ end }}
+			</ul>
+		{{ end }}
+		</nav>
+
 
 	</div>
 	{{ partial "footer.html" . }}
