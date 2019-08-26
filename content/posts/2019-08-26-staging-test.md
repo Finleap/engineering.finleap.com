@@ -5,4 +5,4 @@ draft: false
 ---
 This is a test of the staging deployment.
 
-This post should *only* be visible on the staging environment, and not on production.
+This post should now be visible on production.
