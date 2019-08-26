@@ -17,12 +17,7 @@
       <pubDate>Mon, 26 Aug 2019 13:46:07 +0200</pubDate>
       
       <guid>https://www.finleap.tech/posts/test-post/</guid>
-      <description>Hello world and welcome to my first post
-New Beginning This is a new beginning on my blog on hugo and this seems pretty cool so im adding random text here because I dont know what to add here. So im adding a lot more random text here.
-This is another test.
-Code This is python code:
-from random import randint from faker import Fake randint(1, 2)
-destFile = &amp;ldquo;largedataset-&amp;rdquo; + timestart + &amp;ldquo;.</description>
+      <description>&lt;p&gt;Hello world and welcome to my first post&lt;/p&gt;</description>
     </item>
     
     <item>

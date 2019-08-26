@@ -12,9 +12,13 @@ tags:
 - blog
 draft: false
 ---
-![](https://hugo-simple-blog.work/images/uploads/gopher_hugo.png)
 
 Hello world and welcome to my first post
+
+<!--more-->
+
+![](https://hugo-simple-blog.work/images/uploads/gopher_hugo.png)
+
 
 ## New Beginning
 

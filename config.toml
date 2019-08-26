@@ -2,7 +2,7 @@ baseURL = "https://www.finleap.tech"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Finleap Tech Blog"
-theme = "cayman-hugo-theme"
+theme = "finleap-theme"
 
 # Google analytics
 # googleAnalytics = "UA-123456789-1"
@@ -27,10 +27,10 @@ pygmentsStyle = "pygments"
 
   # Date format for post list and single pages
   # For more date formats see https://gohugo.io/functions/format/
-  dateFormat = "2006-01-02"
+  dateFormat = "02 Jan 2006"
 
   # Footer text, can be markdown
-  footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme). Deployed to [Netlify](https://www.netlify.com/)."
+  footer = "Made with [Hugo](https://gohugo.io/)"
 
   # If true, the CSS/JS for Katex math typesetting are enabled
   katex = true
