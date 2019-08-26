@@ -29,7 +29,7 @@ stage_build:
   image: jguyomard/hugo-builder:latest
   script:
   - git submodule update --init --recursive
-  - hugo -d staging_html -b "${STAGING_BLOG_URL}"
+  - hugo -d staging_html -b "${STAGING_BLOG_URL}" --environment staging
   cache:
     paths:
     - staging_html
