@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Finleap Tech Blog</title>
-    <link>https://www.finleap.tech/posts/</link>
-    <description>Recent content in Posts on Finleap Tech Blog</description>
+    <title>hugo on Finleap Tech Blog</title>
+    <link>https://www.finleap.tech/tags/hugo/</link>
+    <description>Recent content in hugo on Finleap Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Aug 2019 13:46:07 +0200</lastBuildDate>
     
-	<atom:link href="https://www.finleap.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.finleap.tech/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,15 +23,6 @@ This is another test.
 Code This is python code:
 from random import randint from faker import Fake randint(1, 2)
 destFile = &amp;ldquo;largedataset-&amp;rdquo; + timestart + &amp;ldquo;.</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://www.finleap.tech/posts/hello-world/</link>
-      <pubDate>Thu, 22 Aug 2019 15:04:11 +0200</pubDate>
-      
-      <guid>https://www.finleap.tech/posts/hello-world/</guid>
-      <description>Hello, world! This is the initial post to get things up and running. More content to follow shortly.</description>
     </item>
     
   </channel>
