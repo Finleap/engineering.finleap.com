@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.finleap.tech/about/</loc>
-    <lastmod>2019-08-26T15:22:28+02:00</lastmod>
+    <loc>https://www.finleap.tech/posts/2019-08-26-deployment-test/</loc>
+    <lastmod>2019-08-26T16:31:08+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.finleap.tech/</loc>
+    <lastmod>2019-08-26T16:31:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.finleap.tech/posts/</loc>
+    <lastmod>2019-08-26T16:31:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.finleap.tech/about/</loc>
     <lastmod>2019-08-26T15:22:28+02:00</lastmod>
   </url>
   
@@ -24,11 +34,6 @@
   
   <url>
     <loc>https://www.finleap.tech/tags/hugo/</loc>
-    <lastmod>2019-08-26T13:46:07+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.finleap.tech/posts/</loc>
     <lastmod>2019-08-26T13:46:07+02:00</lastmod>
   </url>
   
