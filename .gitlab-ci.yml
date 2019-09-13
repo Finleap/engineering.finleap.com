@@ -14,7 +14,7 @@ build:
   image: jguyomard/hugo-builder:latest
   script:
   - git submodule update --init --recursive
-  - hugo -d public_html -b "${PROD_BLOG_URL}"
+  - hugo -destination public_html -baseURL "${PROD_BLOG_URL}"
   cache:
     paths:
     - public_html
@@ -29,7 +29,7 @@ stage_build:
   image: jguyomard/hugo-builder:latest
   script:
   - git submodule update --init --recursive
-  - hugo -d staging_html -b "${STAGING_BLOG_URL}" --environment staging
+  - hugo --buildDrafts --destination staging_html -baseURL "${STAGING_BLOG_URL}" --environment staging
   cache:
     paths:
     - staging_html
