@@ -1,7 +1,7 @@
 ---
 title: "2019 08 26 Staging Test"
 date: 2019-08-26T17:42:43+02:00
-draft: false
+draft: true
 ---
 This is a test of the staging deployment.
 
