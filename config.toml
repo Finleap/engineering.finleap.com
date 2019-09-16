@@ -6,6 +6,7 @@ theme = "ezhil"
 
 relativeurls = true
 uglyurls = true
+baseurl = ""
 
 # Enable syntax highlighting.
 pygmentsstyle = "vs"
