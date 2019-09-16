@@ -4,6 +4,9 @@ title = "Finleap Tech Blog"
 #theme = "finleap-theme"
 theme = "ezhil"
 
+relativeurls = true
+uglyurls = true
+
 # Enable syntax highlighting.
 pygmentsstyle = "vs"
 pygmentscodefences = true
