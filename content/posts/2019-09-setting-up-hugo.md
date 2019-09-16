@@ -6,7 +6,7 @@ description: "Hugo is a Golang-based static site generator. It reads content cre
 ---
 Hugo is a Golang-based static site generator. It reads content created in Markdown format, applies a set of templates, and renders HTML files which can then be uploaded to a server.
 
-*This is the first in a series of X posts covering the setup, configuration and deployment of a statically-generated HTML website using Hugo, Amazon Web Services, and GitLab. The full set of posts can be found [here]( {{< ref "2019-09-blogging-platform.md" >}} ).*
+*This is the first in a series of X posts covering the setup, configuration and deployment of a statically-generated HTML website using Hugo, Amazon Web Services, and GitLab. The full set of posts can be found [here]( {{< relref "2019-09-blogging-platform.md" >}} ).*
 
 The advantage of a static site generator over, say, a dynamic blogging platform such as Wordpress is threefold - firstly there are fewer moving parts (e.g. no database or PHP interpreter to deal with).  Secondly, serving HTML files is orders of magnitude faster than a system which requires database queries to be run before a page can be build. Finally, if the HTML content is static, it can be cached either server-side or in a content distribution network (CDN) which makes the site significantly more robust under high traffic conditions.
 
