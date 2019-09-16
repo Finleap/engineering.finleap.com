@@ -1,7 +1,7 @@
 ---
 title: "Setting Up Hugo"
 date: 2019-09-16T10:05:13+02:00
-draft: true
+draft: false
 description: "Hugo is a Golang-based static site generator. It reads content created in Markdown format, applies a set of templates, and renders HTML files which can then be uploaded to a server"
 ---
 Hugo is a Golang-based static site generator. It reads content created in Markdown format, applies a set of templates, and renders HTML files which can then be uploaded to a server.
