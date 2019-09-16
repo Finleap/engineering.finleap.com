@@ -1,7 +1,7 @@
 ---
 title: "How to set up a Hugo-powered blog platform on AWS"
 date: 2019-09-13T17:35:35+02:00
-draft: true
+draft: false
 description: "This is a multi-post article detailing the process for setting up a Hugo-powered blog platform using AWS services and Gitlab."
 ---
 
