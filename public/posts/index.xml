@@ -6,27 +6,20 @@
     <description>Recent content in Posts on Finleap Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Aug 2019 16:31:08 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 10:15:52 +0200</lastBuildDate>
     
 	<atom:link href="https://www.finleap.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Deployment Test</title>
-      <link>https://www.finleap.tech/posts/2019-08-26-deployment-test/</link>
-      <pubDate>Mon, 26 Aug 2019 16:31:08 +0200</pubDate>
+      <title>How to set up a Hugo-powered blog platform on AWS</title>
+      <link>https://www.finleap.tech/posts/2019-08-27-blogging-platform/</link>
+      <pubDate>Tue, 27 Aug 2019 10:15:52 +0200</pubDate>
       
-      <guid>https://www.finleap.tech/posts/2019-08-26-deployment-test/</guid>
-      <description>This is a page to test the Git workflow for deployment.</description>
-    </item>
-    
-    <item>
-      <title>Test Post</title>
-      <link>https://www.finleap.tech/posts/test-post/</link>
-      <pubDate>Mon, 26 Aug 2019 13:46:07 +0200</pubDate>
-      
-      <guid>https://www.finleap.tech/posts/test-post/</guid>
-      <description>&lt;p&gt;Hello world and welcome to my first post&lt;/p&gt;</description>
+      <guid>https://www.finleap.tech/posts/2019-08-27-blogging-platform/</guid>
+      <description>This is the process for setting up a Hugo-powered blog platform using AWS services and Gitlab.
+Hugo is a static site generator written in Go - it takes content written in Markdown format and generates flat HTML which can then be served by any number of web server platforms.
+The advantages of using a static site generator over a content management system are speed and flexibility. Flat HTML files can be delivered by a variety of servers ranging from S3 through to a fully-fledged web server like Nginx; and the lack of need for databases and interpreted platforms like PHP or Rails makes setup and configuration much less complicated.</description>
     </item>
     
     <item>
