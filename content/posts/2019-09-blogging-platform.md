@@ -29,10 +29,10 @@ This looks complicated, but the end result will be a site that can securely serv
 
 The process is broken down into 6 steps, each of which has a dedicated post. As each post gets written, you can find them from the links below.
 
-* Setting up Hugo locally, and configuring it as a blogging platform
+* [Setting up Hugo locally, and configuring it as a blogging platform]({{< ref "/posts/2019-09-setting-up-hugo" >}})
+* Using S3 as a web server to serve the blog's content
 * Setting up Gitlab so that you can use pull requests to trigger builds and deployments
 * Setting up your blog's domain with Route53, and using AWS to manage SSL certificates to enable serving the site over HTTPS
-* Using S3 as a web server to serve the blog's content
 * Setting up Cloudfront to act as a CDN for the blog's content to DDOS-proof your site
 * Using AWS Lambda and Cloudformation to rewrite URLS on the fly, working around a couple of S3-and-Hugo-created edge cases
 
