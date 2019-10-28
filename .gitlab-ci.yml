@@ -2,8 +2,8 @@
 variables:
   PROD_S3_BUCKET_NAME: "www.finleap.tech"
   STAGING_S3_BUCKET_NAME: "staging.finleap.tech"
-  PROD_BLOG_URL: "https://www.finleap.tech"
-  STAGING_BLOG_URL: "https://staging.finleap.tech"
+  PROD_BLOG_URL: "https://www.finleap.tech/"
+  STAGING_BLOG_URL: "https://staging.finleap.tech/"
 stages:
   - stage_build
   - build
