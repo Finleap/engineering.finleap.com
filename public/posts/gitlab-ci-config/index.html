@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Configuring GitLab CI &middot; Finleap Tech Blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://www.finleap.techcss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://www.finleap.techcss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://www.finleap.techcss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://www.finleap.techcss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-0d ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <p><img src="/finleap_logo_white.png" alt=""></p>
+      <a href="https://www.finleap.tech"><h1>Finleap Tech Blog</h1></a>
+      <p class="lead">
+       Interesting things that the Finleap tech team have been doing 
+      </p>
+    </div>
+    <nav>
+      <ul class="sidebar-nav">
+        <li class="sidebar-bullet"><a href="/about/"> About </a></li><li class="sidebar-bullet"><a href="https://www.finleap.com"> finleap.com </a></li><li class="sidebar-bullet"><a href="https://github.com/finleap"> Github </a></li><li class="sidebar-bullet"><a href="https://twitter.com/finleap"> Twitter </a></li>
+      </ul>
+    </nav>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <p><a href="https://www.finleap.tech">&lt; Home</a> </p>
+<div class="post">
+  <h1>Configuring GitLab CI</h1>
+  <time datetime=2019-10-27T17:43:01&#43;0100 class="post-date">27 October 2019</time>
+  
+
+<h1 id="the-config-file">The config file</h1>
+
+<p>GitLab continuous integration is controlled by the <code>.gitlab-ci.yml</code> file, which should exist in the root of the project&rsquo;s file structure. When the presence of this file is detected in response to a commit, the GitLab CI runner will kick off the relevant stages as defined in the <code>yml</code> file.</p>
+
+<h1 id="structure">Structure</h1>
+
+<p>The file has three main sections:</p>
+
+<ul>
+<li><strong>variables</strong> which can be used to substitute values in any of the stages</li>
+<li>a <strong>stages section</strong> which defines which stages are present</li>
+<li><strong>configuration for each job</strong> defining in detail how the process should run.</li>
+</ul>
+
+<h1 id="variables">Variables</h1>
+
+<p>These should be listed underneath the <code>variables</code> key, e.g:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">variables:
+  PROD_S3_BUCKET_NAME: &#34;myblog.cc&#34;
+  STAGING_S3_BUCKET_NAME: &#34;staging.myblog.cc&#34;
+  PROD_BLOG_URL: &#34;https://myblog.cc/&#34;
+  STAGING_BLOG_URL: &#34;https://staging.myblog.cc/&#34;</pre></div>
+<h1 id="stages">Stages</h1>
+
+<p>The <code>stages</code> key lists all the stages that will run as part of a job. They run sequentially as listed, but where there are multiple jobs in a stage, these will run in parallel.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">stages:
+  - stage_build
+  - prod_build
+  - stage_deploy
+  - prod_deploy</pre></div>
+<p>Here there are four stages, broken into two types - <code>stage</code>, which targets the staging environment and <code>prod</code> which targets the live environment.</p>
+
+<h1 id="job-definitions">Job definitions</h1>
+
+<p>This is an example of a job definition:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">build_production:
+  stage: prod_build
+  image: jguyomard/hugo-builder:latest
+  script:
+  - git submodule update --init --recursive
+  - hugo --destination public_html --baseURL &#34;${PROD_BLOG_URL}&#34;
+  cache:
+    paths:
+    - public_html
+  artifacts:
+    paths:
+    - public_html
+  only:
+  - master</pre></div>
+<p>Breaking this down line by line:</p>
+
+<p><strong><code>build_production:</code></strong></p>
+
+<p>this is the name of the job, which should be unique</p>
+
+<p><strong><code>stage: prod_build</code></strong></p>
+
+<p>the name of the stage to which this job belongs. Where a stage has more than one job, all jobs will run in parallel</p>
+
+<p><strong><code>image: jguyomard/hugo-builder:latest</code></strong></p>
+
+<p>The Docker image that will be built and used to run this job - in this case, it&rsquo;s a minimum viable Hugo installation used to build the static site assets.</p>
+
+<p><strong><code>script:</code></strong><br/>
+<strong><code>- git submodule update --init --recursive</code></strong><br/>
+<strong><code>- hugo --destination public_html --baseURL &quot;${PROD_BLOG_URL}&quot;</code></strong></p>
+
+<p>The Bash script(s) that will run once the Docker image has been spun up. Variables can be substituted using the <code>${VARIABLE_NAME}</code> syntax.</p>
+
+<p><strong><code>cache:</code></strong><br/>
+&nbsp;&nbsp;<strong><code>paths:</code></strong><br/>
+&nbsp;&nbsp;<strong><code>- public_html</code></strong></p>
+
+<p>The paths that should be cached internally during the job. Caches don&rsquo;t get persisted outside of the lifespan of the job itself.</p>
+
+<p><strong><code>artifacts:</code></strong><br/>
+&nbsp;&nbsp;<strong><code>paths:</code></strong><br/>
+&nbsp;&nbsp;<strong><code>- public_html</code></strong></p>
+
+<p>Paths that <em>should</em> be persisted between jobs, so can be accessed by other jobs after this one has completed. In this case, Hugo will write the site assets to the <code>public_html</code> directory, and these files will be transferred to S3 in the next deployment stage.</p>
+
+<p><strong><code>only:</code></strong><br/>
+<strong><code>- master</code></strong></p>
+
+<p>Git branches where commits will trigger this job - any commit to the <code>master</code> branch will trigger this job.</p>
+
+<p>The opposite of <code>only:</code> is <code>except:</code>, so</p>
+
+<p><strong><code>except:</code></strong><br/>
+<strong><code>- staging</code></strong></p>
+
+<p>will run the job on all branches <em>except</em> <code>staging</code>.</p>
+
+<h1 id="the-full-sample-gitlab-ci-yml">The full sample <code>.gitlab-ci.yml</code></h1>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">variables:
+  PROD_S3_BUCKET_NAME: &#34;trashpanda.cc&#34;
+  STAGING_S3_BUCKET_NAME: &#34;staging.trashpanda.cc&#34;
+  PROD_BLOG_URL: &#34;https://trashpanda.cc/&#34;
+  STAGING_BLOG_URL: &#34;https://staging.trashpanda.cc/&#34;
+
+stages:
+  - stage_build
+  - prod_build
+  - stage_deploy
+  - prod_deploy
+
+prod_build:
+  stage: prod_build
+  image: jguyomard/hugo-builder:latest
+  script:
+  - git submodule update --init --recursive
+  - hugo --destination public_html --baseURL &#34;${PROD_BLOG_URL}&#34;
+  cache:
+    paths:
+    - public_html
+  artifacts:
+    paths:
+    - public_html
+  only:
+  - master
+
+stage_build:
+  stage: stage_build
+  image: jguyomard/hugo-builder:latest
+  script:
+  - git submodule update --init --recursive
+  - hugo --buildDrafts --destination staging_html --baseURL &#34;${STAGING_BLOG_URL}&#34; --environment staging
+  cache:
+    paths:
+    - staging_html
+  artifacts:
+    paths:
+    - staging_html
+  except:
+  - master
+
+prod_deploy:
+  stage: prod_deploy
+  image: python:latest
+  script:
+  - pip install awscli
+  - aws s3 cp ./public_html s3://$PROD_S3_BUCKET_NAME/ --recursive --acl public-read
+  only:
+  - master
+
+stage_deploy:
+  stage: stage_deploy
+  image: python:latest
+  script:
+  - pip install awscli
+  - aws s3 cp ./staging_html s3://$STAGING_S3_BUCKET_NAME/ --recursive --acl public-read
+  except:
+  - master</pre></div>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

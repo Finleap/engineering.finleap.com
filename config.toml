@@ -1,12 +1,11 @@
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Finleap Tech Blog"
-#theme = "finleap-theme"
-theme = "ezhil"
+title = "Tech Blog"
+theme = "hyde"
 
-relativeurls = true
-uglyurls = true
-baseurl = ""
+#relativeurls = true
+#uglyurls = true
+baseurl = "https://finleap.tech/"
 
 # Enable syntax highlighting.
 pygmentsstyle = "vs"
@@ -20,53 +19,64 @@ pygmentscodefencesguesssyntax = true
 
 [params]
 	# Blog subtitle which appears below blog title. Supports markdown.
-	subtitle = "Interesting things that the Finleap tech team have been doing"
-	# Number of posts to show in recent posts list (Optional). Defaults to 10.
-	recentPostsCount = 10
-	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
-	excludedTypes = ["page"]
-	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
-	disableDisqusTypes = ["page"]
-	# If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
-	featherIconsCDN = true
+	# subtitle = "Interesting things that the Finleap tech team have been doing"
+	# # Number of posts to show in recent posts list (Optional). Defaults to 10.
+	# recentPostsCount = 10
+	# # Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
+	# excludedTypes = ["page"]
+	# # Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
+	# disableDisqusTypes = ["page"]
+	# # If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
+	# featherIconsCDN = true
 
-# Main menu which appears below site header.
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+	description = "Interesting things that the Finleap tech team have been doing"
+	themeColor = "theme-base-0d"
 
-[[menu.main]]
-name = "All posts"
-url = "/posts"
-weight = 2
+	[Menus]
+	  main = [
+	      {Name = "About", URL = "/about/"},
+	      {Name = "Github", URL = "https://github.com/finleap"},
+				{Name = "Twitter", URL = "https://twitter.com/finleap"},
+	      {Name = "finleap.com", URL = "https://www.finleap.com"}
+	  ]
 
-[[menu.main]]
-name = "About"
-url = "/about"
-weight = 3
-
-[[menu.main]]
-name = "Tags"
-url = "/tags"
-weight = 4
+# # Main menu which appears below site header.
+# [[menu.main]]
+# name = "Home"
+# url = "/"
+# weight = 1
+#
+# [[menu.main]]
+# name = "All posts"
+# url = "/posts"
+# weight = 2
+#
+# [[menu.main]]
+# name = "About"
+# url = "/about"
+# weight = 3
+#
+# [[menu.main]]
+# name = "Tags"
+# url = "/tags"
+# weight = 4
 
 # Social media links which shows up on site header.
 # Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
-[[params.social]]
-name = "Github"
-icon = "github"
-url = "https://github.com/finleap"
-
-[[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/finleap"
-
-[[params.social]]
-name = "Instagram"
-icon = "instagram"
-url = "https://www.instagram.com/finleap_gmbh"
+# [[params.social]]
+# name = "Github"
+# icon = "github"
+# url = "https://github.com/finleap"
+#
+# [[params.social]]
+# name = "Twitter"
+# icon = "twitter"
+# url = "https://twitter.com/finleap"
+#
+# [[params.social]]
+# name = "Instagram"
+# icon = "instagram"
+# url = "https://www.instagram.com/finleap_gmbh"
 
 # Enable tags.
 [taxonomies]
