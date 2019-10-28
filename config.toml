@@ -34,7 +34,6 @@ pygmentscodefencesguesssyntax = true
 
 	[Menus]
 	  main = [
-	      {Name = "About", URL = "/about/"},
 	      {Name = "Github", URL = "https://github.com/finleap"},
 				{Name = "Twitter", URL = "https://twitter.com/finleap"},
 	      {Name = "finleap.com", URL = "https://www.finleap.com"}
