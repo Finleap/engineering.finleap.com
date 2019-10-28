@@ -79,5 +79,5 @@ pygmentscodefencesguesssyntax = true
 # url = "https://www.instagram.com/finleap_gmbh"
 
 # Enable tags.
-[taxonomies]
-   tag = "tags"
+# [taxonomies]
+#   tag = "tags"
