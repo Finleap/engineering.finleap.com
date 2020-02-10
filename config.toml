@@ -34,9 +34,10 @@ pygmentscodefencesguesssyntax = true
 
 	[Menus]
 	  main = [
-	      {Name = "Github", URL = "https://github.com/finleap"},
-				{Name = "Twitter", URL = "https://twitter.com/finleap"},
-	      {Name = "finleap.com", URL = "https://www.finleap.com"}
+	    	{Name = "Github", URL = "https://github.com/finleap", weight = 200},
+			{Name = "We're hiring!", URL = "https://www.finleap.com/careers/jobs/", weight = 100},
+			{Name = "Twitter", URL = "https://twitter.com/finleap", weight = 300},
+	    	{Name = "finleap.com", URL = "https://www.finleap.com", weight = 400}
 	  ]
 
 # # Main menu which appears below site header.

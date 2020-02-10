@@ -32,26 +32,6 @@
  * Update the foundational and global aspects of the page.
  */
 
-@font-face {
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 100;
-  src:  url(/fonts/gilroy-regular.otf);
-}
-
-@font-face {
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 200;
-  src:  url(/fonts/gilroy-medium.otf);
-}
-
-@font-face {
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 600;
-  src:  url(/fonts/gilroy-semibold.otf);
-}
 
 html {
   font-family: Gilroy, Helvetica, Arial, sans-serif;
@@ -119,7 +99,7 @@ code {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-color: #202020;
+  background-color: #0471ac;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -287,11 +267,11 @@ a.sidebar-nav-item:focus {
 
 /* Blue */
 .theme-base-0d .sidebar {
-  background-color: #6a9fb5;
+  background-color: #0471ac;
 }
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
-  color: #6a9fb5;
+  color: #0471ac;
 }
 
 /* Magenta */
