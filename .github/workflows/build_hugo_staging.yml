@@ -1,0 +1,33 @@
+name: Staging Hugo build & deploy
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+      # with:
+      #   submodules: true
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+        # extended: true
+
+    - name: Build
+      env:
+        STAGING_BLOG_URL: ${{ secrets.STAGING_BLOG_URL }}
+      run: hugo --buildDrafts --buildExpired --buildFuture --destination public_html --baseURL "$STAGING_BLOG_URL"
+
+    - name: Upload S3 Contents
+      run: |
+        aws s3 cp ./public_html s3://$STAGING_AWS_S3_BUCKET --recursive --acl public-read
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        STAGING_AWS_S3_BUCKET: ${{ secrets.STAGING_AWS_S3_BUCKET }}
