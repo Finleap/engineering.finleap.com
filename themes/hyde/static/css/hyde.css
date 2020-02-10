@@ -32,9 +32,31 @@
  * Update the foundational and global aspects of the page.
  */
 
-html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 100;
+  src:  url(/fonts/gilroy-regular.otf);
 }
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 200;
+  src:  url(/fonts/gilroy-medium.otf);
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 600;
+  src:  url(/fonts/gilroy-semibold.otf);
+}
+
+html {
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
+}
+
 @media (min-width: 48em) {
   html {
     font-size: 16px;
@@ -62,7 +84,9 @@ html {
  }
 
  h1 {
-   clear: left;
+  font-family: Gilroy, Helvetica, Arial, serif;
+  clear: left;
+  font-weight: 600;
  }
 
 p {
@@ -117,8 +141,9 @@ code {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "PT Sans", Helvetica, Arial, serif;
+  font-family: Gilroy, Helvetica, Arial, serif;
   font-size: 2.0rem;
+  font-weight: 600;
 }
 
 /* Sidebar nav */
