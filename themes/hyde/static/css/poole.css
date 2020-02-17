@@ -52,6 +52,7 @@ html {
   font-size: 16px;
   line-height: 1.5;
 }
+
 @media (min-width: 38em) {
   html {
     font-size: 20px;
@@ -82,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #313131;
+  color: #0471ac;
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -235,6 +236,7 @@ tbody tr:nth-child(odd) th {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+  line-height: 1.2;
 }
 
 

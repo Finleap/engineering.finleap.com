@@ -32,9 +32,11 @@
  * Update the foundational and global aspects of the page.
  */
 
-html {
+@font-face {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  src: url(fonts/gilroy-regular.otf);
 }
+
 @media (min-width: 48em) {
   html {
     font-size: 16px;

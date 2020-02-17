@@ -32,9 +32,11 @@
  * Update the foundational and global aspects of the page.
  */
 
+
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
 }
+
 @media (min-width: 48em) {
   html {
     font-size: 16px;
@@ -62,7 +64,9 @@ html {
  }
 
  h1 {
-   clear: left;
+  font-family: Gilroy, Helvetica, Arial, serif;
+  clear: left;
+  font-weight: 600;
  }
 
 p {
@@ -95,7 +99,7 @@ code {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-color: #202020;
+  background-color: #0471ac;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -117,8 +121,9 @@ code {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "PT Sans", Helvetica, Arial, serif;
+  font-family: Gilroy, Helvetica, Arial, serif;
   font-size: 2.0rem;
+  font-weight: 600;
 }
 
 /* Sidebar nav */
@@ -262,11 +267,11 @@ a.sidebar-nav-item:focus {
 
 /* Blue */
 .theme-base-0d .sidebar {
-  background-color: #6a9fb5;
+  background-color: #0471ac;
 }
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
-  color: #6a9fb5;
+  color: #0471ac;
 }
 
 /* Magenta */
