@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Finleap Tech Blog</title>
+    <title>Tech Blog</title>
     <link>https://www.finleap.tech/</link>
-    <description>Recent content on Finleap Tech Blog</description>
+    <description>Recent content on Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Oct 2019 17:43:01 +0100</lastBuildDate>
@@ -26,19 +26,7 @@
       <pubDate>Sat, 26 Oct 2019 14:07:50 +0200</pubDate>
       
       <guid>https://www.finleap.tech/posts/web-serving-on-aws/</guid>
-      <description>A writeup of a talk I gave to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS.</description>
-    </item>
-    
-    <item>
-      <title>Hello, I&#39;m Tim.</title>
-      <link>https://www.finleap.tech/about/</link>
-      <pubDate>Fri, 25 Oct 2019 14:09:41 +0200</pubDate>
-      
-      <guid>https://www.finleap.tech/about/</guid>
-      <description>I&amp;rsquo;m a hands-on CTO and software engineering manager - if you need tech translated to business and vice-versa, that&amp;rsquo;s me.
-These days I&amp;rsquo;m based in Berlin and work as Head of Engineering at Finleap.
-I&amp;rsquo;ve got years of experience across the full software development lifecycle on front-end, mobile and backend projects. T-shaped people have one specialism - I&amp;rsquo;ve got three:
-MANAGEMENT: I&amp;rsquo;ve got deep experience of implementing Agile processes into organisations alongside product and business experts, communicating with all levels from factory floor to C-suite.</description>
+      <description>A writeup of a talk given to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS.</description>
     </item>
     
   </channel>

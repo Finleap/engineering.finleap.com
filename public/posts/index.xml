@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Finleap Tech Blog</title>
+    <title>Posts on Tech Blog</title>
     <link>https://www.finleap.tech/posts/</link>
-    <description>Recent content in Posts on Finleap Tech Blog</description>
+    <description>Recent content in Posts on Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Oct 2019 17:43:01 +0100</lastBuildDate>
@@ -26,7 +26,7 @@
       <pubDate>Sat, 26 Oct 2019 14:07:50 +0200</pubDate>
       
       <guid>https://www.finleap.tech/posts/web-serving-on-aws/</guid>
-      <description>A writeup of a talk I gave to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS.</description>
+      <description>A writeup of a talk given to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS.</description>
     </item>
     
   </channel>
