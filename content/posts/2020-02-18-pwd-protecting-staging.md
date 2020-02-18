@@ -1,7 +1,8 @@
 ---
 title: "Password-protecting websites served from S3"
 date: 2020-02-18T10:58:32+01:00
-draft: true
+draft: false
+summary: How to password-protect a site being served from S3 via a CloudFront distribution
 ---
 
 In [this earlier post](https://finleap.tech/posts/web-serving-on-aws/), I worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included creating a staging instance which would deploy automatically in response to pushes to non-master branches in the Git repo.
