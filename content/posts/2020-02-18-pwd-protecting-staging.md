@@ -44,7 +44,7 @@ This will open up an editing window where you can amend the JSON document which 
 
 Update the JSON to the following:
 
-```
+{{< highlight json >}}
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -60,7 +60,8 @@ Update the JSON to the following:
     }
   ]
 }
-```
+{{< / highlight >}}
+
 Then click `Update Trust Policy` - this adds the `edgeLambda` service to the policy, allowing the Lambda function to be triggered by the CloudFront distribution.
 
 
@@ -115,6 +116,7 @@ function checkCredentials(event, context, callback) {
   
 };
 {{< / highlight >}}
+
 Briefly, this code does the following:
 
 * Defines a `checkCredentials` function that receives the HTTP headers in the `event` object
