@@ -8,9 +8,18 @@ theme = "hyde"
 baseurl = "https://finleap.tech/"
 
 # Enable syntax highlighting.
-pygmentsstyle = "vs"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
 
 # Your Google analytics code.
 # googleAnalytics = "UA-123-45"
