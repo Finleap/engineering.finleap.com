@@ -1,3 +1,5 @@
+![Live Hugo build & deploy](https://github.com/Finleap/finleap.tech/workflows/Live%20Hugo%20build%20&%20deploy/badge.svg)
+
 # Process
 
 ## Background

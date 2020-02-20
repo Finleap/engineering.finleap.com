@@ -3,7 +3,7 @@ defaultContentLanguage = "en"
 title = "Tech Blog"
 theme = "hyde"
 
-#relativeurls = true
+relativeurls = true
 #uglyurls = true
 baseurl = "https://finleap.tech/"
 
