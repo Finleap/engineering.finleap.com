@@ -1,6 +1,6 @@
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Finleap Engineering Blog"
+title = "finleap engineering blog"
 theme = "hyde"
 
 relativeurls = true
@@ -24,7 +24,7 @@ baseurl = "https://engineering.finleap.com/"
 googleAnalytics = "UA-158807388-1"
 
 [params]
-	description = "Interesting things that the Finleap engineering teams have been doing"
+	description = "Interesting things that the finleap engineering teams have been doing"
 	themeColor = "theme-base-0d"
 
 	[Menus]
