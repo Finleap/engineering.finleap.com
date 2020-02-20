@@ -26,7 +26,6 @@ googleAnalytics = "UA-158807388-1"
 [params]
 	description = "Interesting things that the Finleap engineering teams have been doing"
 	themeColor = "theme-base-0d"
-	favicon = "favicon.ico"
 
 	[Menus]
 	  main = [
