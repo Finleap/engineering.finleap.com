@@ -23,7 +23,7 @@ Password: `finleap2020`
 
 # Prerequisites
 * (Optional) Local installed version of Homebrew
-* (Optional) Local installed version of Go → https://gohugo.io/getting-started/installing/
+* (Optional) Local installed version of Go → https://golang.org/doc/install
 * Local installed version of Hugo → https://gohugo.io/getting-started/installing/
 * Create a local clone of the project repo `git@gitlab.com:finleap/finleap-tech-blog.git`
 * (Optional) for quick checkout of Gitlab merge commits, add the following line to `~/.gitconfig`
