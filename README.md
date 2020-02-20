@@ -14,12 +14,22 @@ Pages are written in Markdown.
 # Staging authentication
 The staging site is protected by HTTP Basic Auth, controlled by a Lambda function which is invoked by the CloudFront distribution for each request.
 
-The Lambda function `arn:aws:lambda:us-east-1:804609905630:function:StagingSiteAuthenticator` is located in the `US-EAST-1` region
+The Lambda function `arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:StagingSiteAuthenticator` is located in the `US-EAST-1` region
 
 Username and password are defined in the Lambda function itself:
 
 Username: `staging`
 Password: `finleap2020`
+
+# Publishing workflow
+
+1. Create a new branch as outlined below.
+1. Write your post and check syntax, layout etc on your local system
+1. Push your branch
+1. Your new content will be built and pushed to https://staging.engineering.finleap.com
+1. Check the staging site, then open a pull request
+1. The content of the PR will be checked by the admin team for typos etc
+1. When OK, the PR will be merged to master and your new post will be deployed to the live site at https://engineering.finleap.com
 
 # Prerequisites
 * (Optional) Local installed version of Homebrew
@@ -33,6 +43,7 @@ Password: `finleap2020`
 
 1. (Optional) Run the Hugo server `hugo server -D` (The `-D` switch forces building of draft posts)
 1. Open `http://localhost:1313`
+1. Pull the latest changes from the master branch.
 1. Create a new branch `git checkout -b yyyy-mm-dd/post-name` where `yyyy-mm-dd` = date (e.g. `2019-08-26`) and `post-name` = dash-separated post name (e.g. `my-new-post-about-kittens`)
 1. Create a new post: `hugo new posts/yyyy-mm-dd-test-post.md`
 1. Edit and save post - open `/posts/yyyy-mm-dd-test-post.md`, edit using Markdown syntax, and save
@@ -59,7 +70,7 @@ To mark a block of text as monospaced like this, add three backticks above and b
 
 `{{< highlight js >}}`
 
-To syntax-highlight a code snippet, wrap it in highlight markup.
+To syntax-highlight a code snippet, wrap it in highlight markup. This snippet would appear on the live site with Javascript syntax highlighting.
 
 `{{< / highlight >}}`
 
@@ -72,15 +83,6 @@ Static assets (e.g. images) should be added in a sub-folder below the `./static`
 
 To keep things tidy, please create a folder per post, naming it to relate to the branch/post, e.g.
 
-branch name is `2020-02-20/my-new-post-about-kittens`
+* branch name is `2020-02-20/my-new-post-about-kittens`
+* folder name should be `kittens`
 
-folder name should be `kittens`
-
-# Live deployment
-
-1. Checkout the merge candidate branch: `git mr origin <merge request number>` e.g. `git mr origin 2`
-1. Check the proposed amendment in the `mr-origin-<MR number>` branch	
-1. Switch to the master branch `git checkout master`
-1. Merge the changes: `git merge --no-ff mr-origin-<MR number>`
-1. Push the merged changes back to the repo: `git push origin master`
-1. Check that the merge was successful and the changes have been deployed (nb updates will be available only once the Cloudfront distribution updates) `https://engineer.finleap.com`
