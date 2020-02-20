@@ -1,6 +1,6 @@
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Tech Blog"
+title = "finleap Tech Blog"
 theme = "hyde"
 
 relativeurls = true
@@ -40,6 +40,7 @@ baseurl = "https://finleap.tech/"
 
 	description = "Interesting things that the Finleap tech team have been doing"
 	themeColor = "theme-base-0d"
+	favicon = "favicon.ico"
 
 	[Menus]
 	  main = [
