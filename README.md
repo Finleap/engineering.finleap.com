@@ -47,6 +47,20 @@ Password: `finleap2020`
 1.	Check the post on the staging environment:	`https://staging.engineering.finleap.com`
 1.	Create a merge request on Gitlab - click on the `Create Merge Request button` in the Gitlab UI
 
+## Syntax highlighting
+
+The bundled theme has some (semi-intelligent) syntax highlighting capabilities. 
+
+To mark text as `monospaced`, enclose it in backticks.
+
+```
+To mark a block of text as monospaced like this, add three backticks above and below the text.
+```
+
+`{{< highlight js >}}`
+To syntax-highlight a code snippet, wrap it in highlight markup. See the source of the README file for this example.
+`{{< / highlight >}}`
+
 ## Assets
 Static assets (e.g. images) should be added in a sub-folder below the `./static` folder, and referenced in the markdown with  
 
