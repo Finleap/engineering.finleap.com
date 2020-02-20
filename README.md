@@ -5,9 +5,9 @@
 ## Background
 The Finleap engineering blog is a flat HTML site served from Amazon S3 via a Cloudflare distribution. The site is built by the Hugo rendering engine, which is triggered by changes on the branches on the Gitlab service. Deployments to the S3 bucket are made automatically as part of the CI process.
 
-Commits to branches other than master trigger a build and deployment to https://staging.finleap.tech
+Commits to branches other than master trigger a build and deployment to https://staging.engineering.finleap.com
 
-Commits to the master branch trigger a build deployment to https://finleap.tech
+Commits to the master branch trigger a build deployment to https://engineering.finleap.com
 
 Pages are written in Markdown.
 
@@ -31,20 +31,20 @@ Password: `finleap2020`
 
 # Creating a new post
 
-1. (Optional) Run the Hugo server `hugo server -D`
+1. (Optional) Run the Hugo server `hugo server -D` (The `-D` switch forces building of draft posts)
 1. Open `http://localhost:1313`
 1. Create a new branch `git checkout -b yyyy-mm-dd/post-name` where `yyyy-mm-dd` = date (e.g. `2019-08-26`) and `post-name` = dash-separated post name (e.g. `my-new-post-about-kittens`)
 1. Create a new post: `hugo new posts/yyyy-mm-dd-test-post.md`
 1. Edit and save post - open `/posts/yyyy-mm-dd-test-post.md`, edit using Markdown syntax, and save
 1. Update the post metadata:
     `draft`: false to publish post on live site (always visible on staging)
-    `summary`: short summary of the post which is displayed on the homepage
+    `summary`: short summary of the post which is displayed on the homepage (2 - 3 lines)
     `author`: author name
     `author_email`: author email address
 1.  Generate the new post: 	`hugo`
 1.	Commit the changes to the local repo: `git add && git commit -am 'New post about kittens'`
 1.	Push to the remote repo	`git push origin /yyyy-mm-dd/post-name`
-1.	Check the post on the staging environment:	`https://staging.finleap.com`
+1.	Check the post on the staging environment:	`https://staging.engineering.finleap.com`
 1.	Create a merge request on Gitlab - click on the `Create Merge Request button` in the Gitlab UI
 
 ## Assets
@@ -54,6 +54,9 @@ Static assets (e.g. images) should be added in a sub-folder below the `./static`
 ![image alt text](/<subfolder>/<image name>#<optional anchor name)
 ```
 
+To keep things tidy, please create a folder per post, naming it to relate to the branch/post, e.g.
+if branch name is `2020-02-20/my-new-post-about-kittens`, the folder name should be `kittens`
+
 # Live deployment
 
 1. Checkout the merge candidate branch: `git mr origin <merge request number>` e.g. `git mr origin 2`
@@ -61,4 +64,4 @@ Static assets (e.g. images) should be added in a sub-folder below the `./static`
 1. Switch to the master branch `git checkout master`
 1. Merge the changes: `git merge --no-ff mr-origin-<MR number>`
 1. Push the merged changes back to the repo: `git push origin master`
-1. Check that the merge was successful and the changes have been deployed (nb updates will be available only once the Cloudfront distribution updates) `https://finleap.tech`
+1. Check that the merge was successful and the changes have been deployed (nb updates will be available only once the Cloudfront distribution updates) `https://engineer.finleap.com`
