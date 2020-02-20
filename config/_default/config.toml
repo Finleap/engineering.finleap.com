@@ -1,4 +1,1 @@
 baseURL = "https://engineering.finleap.com"
-
-[params]
-    favicon = "favicon.ico"
