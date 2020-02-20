@@ -24,15 +24,15 @@ baseurl = "https://engineering.finleap.com/"
 googleAnalytics = "UA-158807388-1"
 
 [params]
-	description = "Interesting things that the finleap engineering teams have been doing"
+	description = "interesting things that the finleap engineering teams have been doing"
 	themeColor = "theme-base-0d"
 
 	[Menus]
 	  main = [
-      {Name = "Github", URL = "https://github.com/finleap", weight = 200},
-			{Name = "We're hiring!", URL = "https://www.finleap.com/careers/jobs/", weight = 100},
-			{Name = "Twitter", URL = "https://twitter.com/finleap", weight = 300},
-      {Name = "RSS", URL = "https://engineering.finleap.com/index.xml", weight = 400},
+      {Name = "github", URL = "https://github.com/finleap", weight = 200},
+			{Name = "we're hiring!", URL = "https://www.finleap.com/careers/jobs/", weight = 100},
+			{Name = "twitter", URL = "https://twitter.com/finleap", weight = 300},
+      {Name = "rss", URL = "https://engineering.finleap.com/index.xml", weight = 400},
 	    {Name = "finleap.com", URL = "https://www.finleap.com", weight = 500}
 	  ]
 	
