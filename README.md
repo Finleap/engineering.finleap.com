@@ -58,7 +58,9 @@ To mark a block of text as monospaced like this, add three backticks above and b
 ```
 
 `{{< highlight js >}}`
-To syntax-highlight a code snippet, wrap it in highlight markup. See the source of the README file for this example.
+
+To syntax-highlight a code snippet, wrap it in highlight markup.
+
 `{{< / highlight >}}`
 
 ## Assets
@@ -69,7 +71,10 @@ Static assets (e.g. images) should be added in a sub-folder below the `./static`
 ```
 
 To keep things tidy, please create a folder per post, naming it to relate to the branch/post, e.g.
-if branch name is `2020-02-20/my-new-post-about-kittens`, the folder name should be `kittens`
+
+branch name is `2020-02-20/my-new-post-about-kittens`
+
+folder name should be `kittens`
 
 # Live deployment
 
