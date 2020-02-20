@@ -4,7 +4,7 @@ date: 2020-02-20T15:33:03+01:00
 draft: false,
 summary: A frontend developer’s first-time experience with infrastructure as code.
 author: Andreas Jantschnig
-author_email: andreas.jantschnig@finleap
+author_email: andreas.jantschnig@finleap.com
 ---
 
 *“Everything can be code if you are brave enough”*
