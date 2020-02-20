@@ -32,16 +32,12 @@ Password: `finleap2020`
 1. When OK, the PR will be merged to master and your new post will be deployed to the live site at https://engineering.finleap.com
 
 # Prerequisites
-* (Optional) Local installed version of Homebrew
-* (Optional) Local installed version of Go → https://gohugo.io/getting-started/installing/
 * Local installed version of Hugo → https://gohugo.io/getting-started/installing/
-* Create a local clone of the project repo `git@gitlab.com:finleap/finleap-tech-blog.git`
-* (Optional) for quick checkout of Gitlab merge commits, add the following line to `~/.gitconfig`
-** `mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -`
+* Create a local clone of the project repo `git clone git@github.com:Finleap/engineering.finleap.com.git`
 
 # Creating a new post
 
-1. (Optional) Run the Hugo server `hugo server -D` (The `-D` switch forces building of draft posts)
+1. Run the Hugo server `hugo server -D` (The `-D` switch forces building of draft posts)
 1. Open `http://localhost:1313`
 1. Pull the latest changes from the master branch.
 1. Create a new branch `git checkout -b yyyy-mm-dd/post-name` where `yyyy-mm-dd` = date (e.g. `2019-08-26`) and `post-name` = dash-separated post name (e.g. `my-new-post-about-kittens`)

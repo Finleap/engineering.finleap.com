@@ -1,1 +1,3 @@
 baseURL = "https://staging.engineering.finleap.com"
+[params]
+    favicon = "favicon.ico"

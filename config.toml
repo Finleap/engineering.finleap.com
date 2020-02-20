@@ -26,10 +26,11 @@ googleAnalytics = "UA-158807388-1"
 [params]
 	description = "Interesting things that the Finleap engineering teams have been doing"
 	themeColor = "theme-base-0d"
+	favicon = "favicon.ico"
 
 	[Menus]
 	  main = [
-	    {Name = "Github", URL = "https://github.com/finleap", weight = 200},
+      {Name = "Github", URL = "https://github.com/finleap", weight = 200},
 			{Name = "We're hiring!", URL = "https://www.finleap.com/careers/jobs/", weight = 100},
 			{Name = "Twitter", URL = "https://twitter.com/finleap", weight = 300},
 	    {Name = "finleap.com", URL = "https://www.finleap.com", weight = 400}
