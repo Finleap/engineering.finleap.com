@@ -50,7 +50,7 @@ chai.use(chaiJsonSchema);
 
 # Create a schema file
 
-We'll use JSONschema to validate the JSON payload that the server returns.  Create a `schema.js` file in the test directory and define it:
+We'll use `JSON Schema` to validate the JSON payload that the server returns.  Create a `schema.js` file in the test directory and define it:
 
 {{< highlight js >}}
 const postSeedSchema = {
