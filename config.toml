@@ -34,6 +34,6 @@ googleAnalytics = "UA-158807388-1"
 			{Name = "twitter", URL = "https://twitter.com/finleap", weight = 300},
       {Name = "rss", URL = "https://engineering.finleap.com/index.xml", weight = 400},
 	    {Name = "finleap.com", URL = "https://www.finleap.com", weight = 500},
-      {Name = "imprint", URL = "https://engineering.finleap.com/imprint", weight = 600}
+      {Name = "imprint", URL = "/imprint", weight = 600}
 	  ]
 	
