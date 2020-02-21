@@ -2,7 +2,7 @@
 title: "Unit-testing a JSON-serving API with Express"
 date: 2020-02-21T13:39:29+01:00
 draft: true
-summary: Here's how you quickly nail up a basic unit test for an Express server acting as a  JSON_serving API.
+summary: Here's how you quickly nail up a basic unit test for an Express server acting as a  JSON-serving API.
 author: Tim Duckett
 author_email: tim.duckett@finleap.com
 ---
