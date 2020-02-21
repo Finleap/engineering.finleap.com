@@ -5,7 +5,7 @@ draft: false
 summary: "How to automate the process of invalidating content in Cloudfront distributions, as part of a continuous deployment setup"
 ---
 
-In [this earlier post](https://finleap.tech/posts/web-serving-on-aws/), I worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included setting up a Cloudfront distribution to act as a content distribution network in front of the S3 bucket.  
+[This previous post](https://finleap.tech/posts/web-serving-on-aws/) worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included setting up a Cloudfront distribution to act as a content distribution network in front of the S3 bucket.  
 
 Using Cloudfront as a CDN means that the actual content is replicated out into the CDN's edge nodes, and will be served from there rather than hitting the "real" backend. The tradeoff is that changes to the "real" content will take time to replicate out to the edge nodes, so it can be a while before they show up. Not ideal if you want to get new or updated content out there quickly.
 
@@ -13,7 +13,7 @@ A workaround for this delay is to create an _"invalidation"_ - basically telling
 
 There's a cost for creating invalidations, so they're not something that you want to do multiple times an hour - but for getting the latest version of a site out there, it's not too onerous.
 
-You can create invalidations manually, but a more robust process (and prompted by the fact that I _always_ forget to trigger them manually, and then sit around wondering why nothing has changed) is to add them to the deployment stage of your CI workflow.
+You can create invalidations manually - but rather than forgetting and then sit around wondering why nothing has changed, a more robust process is to add them to the deployment stage of your CI workflow.
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ The overall process is as follows:
 
 ### Configuring the Gitlab settings
 
-To keep the deployment configuration and the parameters (such as access keys, secrets and Cloudfront distribution ID) separate, we'll use a Gitlab environment variable which will be substituted into the config at runtime.
+To keep the deployment configuration and the parameters (such as access keys, secrets and Cloudfront distribution ID) separate, you'll use a Gitlab environment variable which will be substituted into the config at runtime.
 
 In the Gitlab project, select the `CI/CD` option from the `Settings` area in the left-hand sidebar, and add a new `Variable`. The `Key` is up to you - I use `PROD_CLOUDFRONT_DIST`. The `value` is the Cloudfront distribution ID from the prerequisites.
 

@@ -7,7 +7,7 @@ author: Tim Duckett
 author_email: tim.duckett@finleap.com
 ---
 
-In [this earlier post](https://finleap.tech/posts/web-serving-on-aws/), I worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included creating a staging instance which would deploy automatically in response to pushes to non-master branches in the Git repo.
+This [earlier post](https://finleap.tech/posts/web-serving-on-aws/) worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included creating a staging instance which would deploy automatically in response to pushes to non-master branches in the Git repo.
 
 While it's useful to be able to see work in progress content, making that available to whoever stumbles across the site isn't ideal - it would be better if the staging site was secured behind a login.
 
