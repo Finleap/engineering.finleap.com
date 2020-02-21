@@ -95,13 +95,14 @@ Life is too short to create JSON schemas by hand, so you can cheat and use a gen
 
 {{< highlight js >}}
 describe('App', () => {
-  describe('/seed', () => {
+
+  describe('/endpoint', () => {
 
     /* Let's test if things work at all */
 
     it('responds with status 200', (done) => {
       chai.request(app)
-        .post('/seed')
+        .get('/endpoint')
         .end((err, res) => {
           expect(res).to.have.status(200);
           done();
@@ -112,7 +113,7 @@ describe('App', () => {
 
     it('responds with the correct JSON response', (done) => {
       chai.request(app)
-        .post('/seed')
+        .get('/endpoint')
         .end((err, res) => {
           expect(res.body).to.have.property('personId');
           expect(res.body).to.have.property('accountId');
@@ -132,7 +133,7 @@ describe('App', () => {
 
       /* Test against the schema */
       chai.request(app)
-      .post('/seed')
+      .get('/endpoint')
       .end( (err, res) => {
         expect(res.body).to.be.jsonSchema(schema);
         done();
