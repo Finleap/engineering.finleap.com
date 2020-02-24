@@ -1,19 +1,24 @@
 <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <p><img src="/finleap_logo_white.png" alt=""></p>
-      <a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title }}</h1></a>
-      <p class="lead">
-      {{ with .Site.Params.description }} {{.}} {{ else }}An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.{{end}}
-      </p>
+      <p><img src="/finleap_engineering_logo.svg" width="168" alt="{{ .Site.Params.description }}"></p>
+      <a href="{{ .Site.BaseURL }}"><h1>Our blog</h1></a>
+      <a href="https://www.finleap.com/careers/jobs/"><h2>We're hiring</h2></a>
     </div>
-    <nav>
-      <ul class="sidebar-nav">
-        {{ range .Site.Menus.main -}}
+    <nav class="sidebar-nav">
+      <a class="icon twitter" href="https://twitter.com/finleap"><img src="/twitter.svg" width="30"></a>
+      <a class="icon github" href="https://github.com/finleap"><img src="/github.svg" width="30"></a>
+      <a class="icon rss" href="https://engineering.finleap.com/index.xml"><img src="/rss.svg" width="30"></a>
+    </nav>
+    <footer>
+      <ul class="sidebar-footer">
+        <li class="sidebar-bullet sub"><a href="/imprint">Imprint</a></li>
+        <li class="sidebar-bullet sub"><a href="/privacy">Privacy Policy</a></li>
+        {{ range .Site.Menus.footer -}}
           <li class="sidebar-bullet"><a href="{{.URL}}"> {{ .Name }} </a></li>
         {{- end }}
       </ul>
-    </nav>
+    </footer>
     <!-- <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p> -->
   </div>
 </aside>

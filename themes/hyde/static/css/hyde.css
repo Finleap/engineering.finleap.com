@@ -120,14 +120,23 @@ code {
 /* About section */
 .sidebar-about h1 {
   color: #fff;
-  margin-top: 0;
+  margin-top: 6rem;
   font-family: Gilroy, Helvetica, Arial, serif;
   font-size: 2.0rem;
   font-weight: 600;
 }
 
+.sidebar-about h2 {
+  color: #fff;
+  margin-top: 0;
+  font-family: Gilroy, Helvetica, Arial, serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
 /* Sidebar nav */
 .sidebar-nav {
+  margin-top: 1rem;
   padding-left: 0;
   list-style: none;
 }
@@ -141,6 +150,30 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+.sidebar-nav .icon {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+/* Sidebar footer */
+.sidebar footer {
+  position: absolute;
+  bottom: 0;
+}
+.sidebar-footer {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar-footer-item {
+  display: block;
+}
+.sidebar-footer .sub {
+  font-size: 0.7rem;
+}
+a.sidebar-footer-item:hover,
+a.sidebar-footer-item:focus {
+  text-decoration: underline;
+}
 
 /* Sticky sidebar
  *
@@ -151,6 +184,7 @@ a.sidebar-nav-item:focus {
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
+    top:    2rem;
     right:  1rem;
     bottom: 1rem;
     left:   1rem;
