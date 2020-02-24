@@ -4,6 +4,15 @@
     <main class="content container">
     {{ block "main" . -}}{{- end }}
     </main>
+    <footer>
+      <ul class="mobile-footer">
+        <li class="sub"><a href="/imprint">Imprint</a></li>
+        <li class="sub"><a href="/privacy">Privacy Policy</a></li>
+        {{ range .Site.Menus.footer -}}
+        <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        {{- end }}
+      </ul>
+    </footer>
 
     {{ template "_internal/google_analytics_async.html" . }}
   </body>
