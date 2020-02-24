@@ -272,6 +272,65 @@ footer .sub {
   }
 }
 
+/* hero image */
+.hero {
+  display: none;
+  height: 18rem;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  margin-top: -4rem;
+  margin-bottom: 3rem;
+}
+
+.hero .hero-slogan {
+  display: none;
+  position: relative;
+  background: #fff;
+  color: #003269;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem 0.5rem 1rem;
+  margin: 3rem 0 0 5rem;
+}
+
+.hero .hero-slogan:after {
+  display: none;
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: -1rem;
+  top: -1rem;
+  background: #00AAC8;
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    display: block;
+    margin-left: -5rem;
+    margin-right: -5rem;
+  }
+
+  .hero .hero-slogan {
+    display: inline-bock;
+    width: 16rem;
+  }
+
+  .hero .hero-slogan:after {
+    display: block;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero {
+    margin-left: -5rem;
+    margin-right: -13rem;
+  }
+
+  .hero .hero-sogan {
+    width: 22rem;
+  }
+}
 
 /*
  * Reverse layout
