@@ -99,7 +99,7 @@ code {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-color: #0471ac;
+  background-color: #2F71A7;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -414,14 +414,14 @@ footer .sub {
 
 /* Blue */
 .theme-base-0d .sidebar {
-  background-color: #0471ac;
+  background-color: #2F71A7;
 }
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
-  color: #0471ac;
+  color: #2F71A7;
 }
 .theme-base-0d footer {
-  background-color: #0471ac;
+  background-color: #2F71A7;
 }
 
 /* Magenta */
