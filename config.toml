@@ -1,6 +1,7 @@
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "finleap engineering blog"
+subtitle = "our blog"
 theme = "hyde"
 
 relativeurls = true
@@ -28,12 +29,7 @@ googleAnalytics = "UA-158807388-1"
 	themeColor = "theme-base-0d"
 
 	[Menus]
-	  main = [
-      {Name = "github", URL = "https://github.com/finleap", weight = 200},
-			{Name = "we're hiring!", URL = "https://www.finleap.com/careers/jobs/", weight = 100},
-			{Name = "twitter", URL = "https://twitter.com/finleap", weight = 300},
-      {Name = "rss", URL = "https://engineering.finleap.com/index.xml", weight = 400},
-	    {Name = "finleap.com", URL = "https://www.finleap.com", weight = 500},
-      {Name = "imprint", URL = "/imprint", weight = 600}
-	  ]
+    footer = [
+      {Name = "www.finleap.com", URL = "https://www.finleap.com", weight = 500},
+    ]
 	
