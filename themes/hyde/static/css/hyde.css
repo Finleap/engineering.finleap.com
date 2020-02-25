@@ -354,6 +354,24 @@ footer .sub {
   }
 }
 
+/* posts list */
+.post-title {
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.post-date {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (min-width: 80rem) {
+  .posts .post {
+    border-left: 2px solid #003269;
+    padding-left: 1rem;
+  }
+}
+
 /* post page */
 .back {
   font-size: 1.25rem;
@@ -373,7 +391,6 @@ footer .sub {
 }
 
 .author .author-avatar img {
-  
   width: 3rem;
   border-radius: 0;
 }
@@ -524,16 +541,11 @@ footer .sub {
 .theme-base-0d .related-posts li a:hover {
   color: #003269;
 }
-.theme-base-0d .post-title {
-  font-size: 1.4rem;
-}
 .theme-base-0d .post {
   color: #606264;
 }
 .theme-base-0d .post-date {
   color: #0a6eaa;
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
 }
 .theme-base-0d .back a {
   color: #0a6eaa;
