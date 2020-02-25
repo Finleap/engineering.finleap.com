@@ -4,6 +4,7 @@ date: 2020-02-20T15:33:03+01:00
 draft: false,
 summary: A frontend developer’s first-time experience with infrastructure as code.
 author: Andreas Jantschnig
+author_position: Engineering Lead
 author_email: andreas.jantschnig@finleap.com
 ---
 

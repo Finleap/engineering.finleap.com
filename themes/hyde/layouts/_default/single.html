@@ -1,10 +1,21 @@
 {{ define "main" -}}
-<p><a href="{{ .Site.BaseURL }}">< Home</a> </p>
+<p class="back"><a href="{{ .Site.BaseURL }}">< back to blog</a> </p>
+<div class="author">
+  <img class="author-avatar" src="https://www.gravatar.com/avatar/{{ md5 $.Params.author_email }}?s=100&d=identicon">
+  {{ if $.Params.author -}}
+  <h4>{{ $.Params.author }}</h4>
+  {{- end }}
+
+  {{ if $.Params.author_position -}}
+  <h5>{{ $.Params.author_position }}</h5>
+  {{- end }}
+
+  {{ if $.Params.author_email -}}
+  <a class="author-contact" href="mailto:{{ $.Params.author_email }}">Get in contact</a>
+  {{- end}}
+</div>
 <div class="post">
   <h1>{{ .Title }}</h1>
-  {{ if $.Params.author -}}
-  <h4>{{ $.Params.author }} - {{ $.Params.author_email }}</h4><br />
-  {{- end }}
   <time datetime={{ .Date.Format "2006-01-02T15:04:05Z0700" }} class="post-date">{{ .Date.Format "2 January 2006" }}</time>
   {{ .Content }}
 </div>
