@@ -363,13 +363,21 @@ footer .sub {
 }
 
 .author {
-  position: absolute;
-  width: 13rem;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.author .author-avatar {
+  float: left;
+  margin-right: 1rem;
+  width: 3rem;
 }
 
 .author h4 {
   font-size: 1rem;
   font-weight: 500;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -384,15 +392,29 @@ footer .sub {
   background-image: url("/icon_mail.png");
   background-position: 0 0;
   background-repeat: no-repeat;
+  background-size: auto 100%;
   padding: 0.1rem 0 0.1rem 1.5rem;
-}
-
-.post {
-  margin-left: 13rem;
 }
 
 .post h1 {
   margin-top: 0;
+}
+
+@media (min-width: 80rem) {
+  .author {
+    position: absolute;
+    width: 13rem;
+  }
+
+  .author .author-avatar {
+    width: 4.1rem;
+    float: none;
+    margin-right: 0;
+  }
+
+  .post {
+    margin-left: 13rem;
+  }
 }
 
 /*
@@ -492,7 +514,7 @@ footer .sub {
 .theme-base-0d .post-date {
   color: #2F71A7;
   font-size: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.2rem;
 }
 .theme-base-0d .back a {
   color: #2F71A7;
