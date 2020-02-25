@@ -8,7 +8,7 @@ author_email: tim.duckett@finleap.com
 summary: "A writeup of a talk given to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS."
 ---
 
-This is a writeup of a talk that [Tim Duckett](https://www.linkedin.com/in/timduckett), Head of Engineering at Finleap Build, gave to the [Berlin AWS Users Group](https://www.meetup.com/aws-berlin/) in October 2019, showing how AWS services can be combined with GitLab and static site generators such as Hugo to serve static HTML sites robustly and at minimum cost. It's also a good example of how to combine multiple AWS services such as Cloudfront and Lambda functions to build more sophisticated features.
+This is a writeup of a talk that I gave to the [Berlin AWS Users Group](https://www.meetup.com/aws-berlin/) in October 2019, showing how AWS services can be combined with GitLab and static site generators such as Hugo to serve static HTML sites robustly and at minimum cost. It's also a good example of how to combine multiple AWS services such as Cloudfront and Lambda functions to build more sophisticated features.
 
 The workflow described here is how this site is powered, so you're reading a practical example of the process in action.
 

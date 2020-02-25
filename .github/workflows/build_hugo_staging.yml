@@ -22,11 +22,11 @@ jobs:
     - name: Build
       env:
         STAGING_BLOG_URL: ${{ secrets.STAGING_BLOG_URL }}
-      run: hugo --buildDrafts --buildExpired --buildFuture --destination public_html --baseURL "$STAGING_BLOG_URL"
+      run: hugo --minify --buildDrafts --buildExpired --buildFuture --destination public_html --baseURL "$STAGING_BLOG_URL"
 
     - name: Upload S3 Contents
       run: |
-        aws s3 cp ./public_html s3://$STAGING_AWS_S3_BUCKET --recursive --acl public-read --cache-control "public, must-revalidate, proxy-revalidate, max-age=2678400, s-maxage=2678400"
+        aws s3 sync ./public_html s3://$STAGING_AWS_S3_BUCKET --acl public-read --cache-control "public, must-revalidate, proxy-revalidate, max-age=2678400, s-maxage=2678400"
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

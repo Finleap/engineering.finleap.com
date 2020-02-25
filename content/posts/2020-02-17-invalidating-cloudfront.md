@@ -8,7 +8,7 @@ author_position: Head of Engineering
 author_email: tim.duckett@finleap.com
 ---
 
-[This previous post](https://finleap.tech/posts/web-serving-on-aws/) worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included setting up a Cloudfront distribution to act as a content distribution network in front of the S3 bucket.  
+[This previous post](https://engineering.finleap.com/posts/2019-10-26-web-serving-on-aws/) worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included setting up a Cloudfront distribution to act as a content distribution network in front of the S3 bucket.  
 
 Using Cloudfront as a CDN means that the actual content is replicated out into the CDN's edge nodes, and will be served from there rather than hitting the "real" backend. The tradeoff is that changes to the "real" content will take time to replicate out to the edge nodes, so it can be a while before they show up. Not ideal if you want to get new or updated content out there quickly.
 
