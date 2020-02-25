@@ -3,6 +3,9 @@ title: "Configuring GitLab CI"
 date: 2019-10-27T17:43:01+01:00
 draft: false
 summary: "How to configure a GitLab CI YAML file"
+author: Tim Duckett
+author_position: Head of Engineering
+author_email: tim.duckett@finleap.com
 ---
 # The config file
 
