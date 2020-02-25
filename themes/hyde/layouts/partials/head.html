@@ -20,11 +20,16 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   <!-- CSS -->
-  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
-  <link type="text/css" rel="stylesheet" href="/css/fonts.css">
+  {{ $print := resources.Get "css/print.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $print.Permalink }}" integrity="{{ $print.Data.Integrity }}" media="print">
+  {{ $poole := resources.Get "css/poole.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $poole.Permalink }}" integrity="{{ $poole.Data.Integrity }}" media="screen">
+  {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $syntax.Permalink }}" integrity="{{ $syntax.Data.Integrity }}" media="screen">
+  {{ $hyde := resources.Get "css/hyde.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $hyde.Permalink }}" integrity="{{ $hyde.Data.Integrity }}" media="screen">
+  {{ $fonts := resources.Get "css/fonts.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $fonts.Permalink }}" integrity="{{ $fonts.Data.Integrity }}" media="screen">
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158807388-1"></script>
