@@ -363,14 +363,30 @@ footer .sub {
 
 .author {
   width: 100%;
-  overflow: hidden;
   margin-bottom: 2rem;
 }
 
 .author .author-avatar {
+  position: relative;
   float: left;
   margin-right: 1rem;
+}
+
+.author .author-avatar img {
+  
   width: 3rem;
+  border-radius: 0;
+}
+
+.author .author-avatar:after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background: #00AAC8;
+  left: -0.5rem;
+  top: -0.5rem;
 }
 
 .author h4 {

@@ -1,7 +1,9 @@
 {{ define "main" -}}
 <p class="back"><a href="{{ .Site.BaseURL }}">< back to blog</a> </p>
 <div class="author">
-  <img class="author-avatar" src="https://www.gravatar.com/avatar/{{ md5 $.Params.author_email }}?s=82&d=identicon">
+  <div class="author-avatar">
+    <img src="https://www.gravatar.com/avatar/{{ md5 $.Params.author_email }}?s=82&d=identicon">
+  </div>
   {{ if $.Params.author -}}
   <h4>{{ $.Params.author }}</h4>
   {{- end }}
