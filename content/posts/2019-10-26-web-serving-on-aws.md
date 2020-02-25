@@ -2,6 +2,9 @@
 title: "Web serving with AWS and continuous deployment"
 date: 2019-10-26T14:07:50+02:00
 draft: false
+author: Tim Duckett
+author_position: Head of Engineering
+author_email: tim.duckett@finleap.com
 summary: "A writeup of a talk given to the Berlin AWS Users Group in October 2019, demonstrating how to implement a reliable website using a static site generator, continuous deployment and AWS."
 ---
 
@@ -31,16 +34,19 @@ The net effect is that once set up, site updates can be deployed simply by makin
 
 # The process
 
-1. [Static site generation](#static_site_generation)
-1. [Serving web content from S3](#serving_web_content_from_S3)
-1. [Setting up SSL](#setting_up_ssl)
-1. [Setting up the Cloudfront CDN](#setting_up_cloudfront)
-1. [Updating the domain](#updating_the_domain)
-1. [Setting up continuous deployment](#updating_the_domain)
-1. [Creating a CI/CD user with S3 access](#creating_a_cicd_user)
-1. [Updating GitLab S3 permissions](#updating_gitlab_s3_permissions)
-1. [Cleaning up Hugo URLs](#cleaning_up_hugo_urls)
-1. [Cleaning up Hugo error pages](#cleaning_up_hugo_error_pages)
+- [Why AWS?](#why-aws)
+- [The process](#the-process)
+- [1. <a name="static_site_generation"></a>Static site generation](#1-static-site-generation)
+- [2. <a name="serving_web_content_from_S3"></a>Serving web content from S3](#2-serving-web-content-from-s3)
+- [3. <a name="setting_up_ssl"></a>Setting up SSL](#3-setting-up-ssl)
+- [4. <a name="setting_up_cloudfront"></a>Setting up the CloudFront CDN](#4-setting-up-the-cloudfront-cdn)
+- [5. <a name="updating_the_domain"></a>Updating the domain](#5-updating-the-domain)
+- [6. <a name="continuous_deployment"></a>Setting up continuous deployment](#6-setting-up-continuous-deployment)
+- [7. <a name="creating_a_cicd_user"></a>Creating a CI/CD user with S3 access](#7-creating-a-cicd-user-with-s3-access)
+- [8. <a name="updating_gitlab_s3_permissions"></a>Updating GitLab S3 permissions](#8-updating-gitlab-s3-permissions)
+- [9. <a name="cleaning_up_hugo_urls"></a>Cleaning up Hugo URLs](#9-cleaning-up-hugo-urls)
+- [10. <a name="cleaning_up_hugo_error_pages"></a>Cleaning up Hugo error pages](#10-cleaning-up-hugo-error-pages)
+- [Conclusion](#conclusion)
 
 # 1. <a name="static_site_generation"></a>Static site generation
 

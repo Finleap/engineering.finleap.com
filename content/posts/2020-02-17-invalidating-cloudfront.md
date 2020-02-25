@@ -3,6 +3,9 @@ title: "Automating Cloudfront invalidations in an continous deployment setup"
 date: 2020-02-17T13:15:04+01:00
 draft: false
 summary: "How to automate the process of invalidating content in Cloudfront distributions, as part of a continuous deployment setup"
+author: Tim Duckett
+author_position: Head of Engineering
+author_email: tim.duckett@finleap.com
 ---
 
 [This previous post](https://finleap.tech/posts/web-serving-on-aws/) worked through the process of automating deployment of a Hugo blog to an Amazon AWS environment. Part of that included setting up a Cloudfront distribution to act as a content distribution network in front of the S3 bucket.  

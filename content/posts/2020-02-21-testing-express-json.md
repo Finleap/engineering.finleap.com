@@ -4,6 +4,7 @@ date: 2020-02-21T13:39:29+01:00
 draft: true
 summary: Here's how you quickly nail up a basic unit test for an Express server acting as a  JSON-serving API.
 author: Tim Duckett
+author_position: Head of Engineering
 author_email: tim.duckett@finleap.com
 ---
 Here's a super-simple process for quickly nailing up a basic unit test of an Express server acting as a JSON-serving API. It uses a test against a JSON schema, which allows you to test the JSON payload without needing to delve into the values property-by-property. The trade-off is needing to generate a JSON schema in the first place, but hey - nothing in life is free, and there are tools available to remove some of the heavy lifting.
