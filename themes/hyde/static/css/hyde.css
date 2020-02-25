@@ -274,7 +274,7 @@ footer .sub {
 /* hero image */
 .hero {
   display: none;
-  height: 18rem;
+  height: 20rem;
   background-image: url("/hero.jpg");
   background-size: cover;
   background-position: center center;
@@ -323,7 +323,7 @@ footer .sub {
 @media (min-width: 64rem) {
   .hero {
     margin-left: -5rem;
-    margin-right: -13rem;
+    margin-right: -23rem;
   }
 
   .hero .hero-sogan {
