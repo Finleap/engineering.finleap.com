@@ -4,6 +4,7 @@ date: 2020-02-18T10:58:32+01:00
 draft: false
 summary: How to password-protect a site being served from S3 via a CloudFront distribution
 author: Tim Duckett
+author_position: Head of Engineering
 author_email: tim.duckett@finleap.com
 ---
 
@@ -19,10 +20,11 @@ It's a multistage process:
 
 # The process
 
-1. [Creating a new IAM role](#iam_role)
-1. [Updating the IAM role permissions](#iam_permissions)
-1. [Creating the Lambda function](#lambda_function)
-1. [Connecting the Lambda function to Cloudfront](#connecting-lambda)
+- [The process](#the-process)
+- [1. <a name="iam_role"></a>Creating a new IAM role](#1-creating-a-new-iam-role)
+- [2. <a name="iam_permissions"></a>Updating the IAM role permissions](#2-updating-the-iam-role-permissions)
+- [3. <a name="lambda_function"></a>Creating the Lambda function](#3-creating-the-lambda-function)
+- [4. <a name="connecting-lambda"></a>Connecting the Lambda function to the CloudFront distribution](#4-connecting-the-lambda-function-to-the-cloudfront-distribution)
 
 Make sure that you perform all steps while in the US-East-1 (N Virginia) region, as CloudFront can only access Lambda function in this region.
 
