@@ -332,6 +332,29 @@ footer .sub {
   }
 }
 
+/* secondary posts header */
+.posts-header {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  .posts-header {
+    display: block;
+    position: absolute;
+    width: 11rem;
+  }
+
+  .posts-header h2 {
+    margin-top: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+
+  .posts {
+    margin-left: 11rem;
+  }
+}
+
 /*
  * Reverse layout
  *
@@ -418,7 +441,18 @@ footer .sub {
 }
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
+  color: #003269;
+}
+.theme-base-0d .post-title {
+  font-size: 1.4rem;
+}
+.theme-base-0d .post {
+  color: #606264;
+}
+.theme-base-0d .post-date {
   color: #2F71A7;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
 }
 .theme-base-0d footer {
   background-color: #2F71A7;

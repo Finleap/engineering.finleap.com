@@ -2,6 +2,9 @@
 <div class="hero">
   <div class="hero-slogan">Get to know what our engineering teams have been doing</div>
 </div>
+<div class="posts-header">
+  <h2>Our blog</h2>
+</div>
 <div class="posts">
 {{ range .Site.RegularPages -}}
 {{ if not (in .Params.type "static-page") }}
