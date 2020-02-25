@@ -22,7 +22,7 @@ jobs:
     - name: Build
       env:
         PROD_BLOG_URL: ${{ secrets.PROD_BLOG_URL }}
-      run: hugo --destination public_html --baseURL "$PROD_BLOG_URL"
+      run: hugo --minify --destination public_html --baseURL "$PROD_BLOG_URL"
 
     - name: Upload S3 Contents
       run: |

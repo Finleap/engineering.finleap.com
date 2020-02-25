@@ -22,7 +22,7 @@ jobs:
     - name: Build
       env:
         STAGING_BLOG_URL: ${{ secrets.STAGING_BLOG_URL }}
-      run: hugo --buildDrafts --buildExpired --buildFuture --destination public_html --baseURL "$STAGING_BLOG_URL"
+      run: hugo --minify --buildDrafts --buildExpired --buildFuture --destination public_html --baseURL "$STAGING_BLOG_URL"
 
     - name: Upload S3 Contents
       run: |
