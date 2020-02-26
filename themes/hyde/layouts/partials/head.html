@@ -20,8 +20,9 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   <!-- CSS -->
-  {{ $print := resources.Get "css/print.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $print.Permalink }}" integrity="{{ $print.Data.Integrity }}" media="print">
+  {{ with resources.Get "css/print.css" | minify }}
+  <style type="text/css" media="print">{{ .Content | safeCSS }}</style>
+  {{ end }}
   {{ $poole := resources.Get "css/poole.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $poole.Permalink }}" integrity="{{ $poole.Data.Integrity }}" media="screen">
   {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
@@ -37,7 +38,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'UA-158807388-1');
   </script>
 
@@ -45,6 +45,4 @@
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end -}}
-
-  {{ partial "hook_head_end.html" . }}
 </head>
