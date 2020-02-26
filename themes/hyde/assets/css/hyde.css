@@ -37,10 +37,6 @@ html {
   font-family: Gilroy, Helvetica, Arial, sans-serif;
 }
 
-body {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
 @media (min-width: 48em) {
   html {
     font-size: 16px;
@@ -56,16 +52,6 @@ body {
  * Custom stuff
  *
  */
-
- img[src*="#keynote_thumbnail"] {
-    width: 20em;
-    display: inline;
-    float: left;
-    clear: left;
-    overflow: auto;
-    margin-top: 0rem 0.7rem 3rem 0rem;
-    padding-right: 1rem;
- }
 
  h1 {
   font-family: Gilroy, Helvetica, Arial, serif;
@@ -284,7 +270,6 @@ footer .sub {
   display: none;
   position: relative;
   background: #fff;
-  color: #003269;
   font-size: 1.5rem;
   padding: 1rem 0.5rem 0.5rem 1rem;
   margin: 3rem 0 0 5rem;
@@ -298,7 +283,6 @@ footer .sub {
   position: absolute;
   left: -1rem;
   top: -1rem;
-  background: #00AAC8;
 }
 
 @media (min-width: 48rem) {
@@ -368,9 +352,14 @@ footer .sub {
   margin-bottom: 1.2rem;
 }
 
+.posts .post {
+  border-left: none;
+}
+
 @media (min-width: 80rem) {
   .posts .post {
-    border-left: 2px solid #003269;
+    border-left-width: 2px;
+    border-left-style: solid;
     padding-left: 1rem;
   }
 }
@@ -404,7 +393,6 @@ footer .sub {
   content: "";
   width: 0.6rem;
   height: 0.6rem;
-  background: #00AAC8;
   left: -0.3rem;
   top: -0.3rem;
 }
@@ -457,32 +445,6 @@ footer .sub {
 }
 
 /*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` on the right.
- */
-
-@media (min-width: 48em) {
-  .layout-reverse .sidebar {
-    left: auto;
-    right: 0;
-  }
-  .layout-reverse .content {
-    margin-left: 2rem;
-    margin-right: 20rem;
-  }
-}
-
-@media (min-width: 64em) {
-  .layout-reverse .content {
-    margin-left: 4rem;
-    margin-right: 22rem;
-  }
-}
-
-
-
-/*
  * Themes
  *
  * As of v1.1, Hyde includes optional themes to color the sidebar and links
@@ -491,51 +453,6 @@ footer .sub {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
-/* Red */
-.theme-base-08 .sidebar {
-  background-color: #ac4142;
-}
-.theme-base-08 .content a,
-.theme-base-08 .related-posts li a:hover {
-  color: #ac4142;
-}
-
-/* Orange */
-.theme-base-09 .sidebar {
-  background-color: #d28445;
-}
-.theme-base-09 .content a,
-.theme-base-09 .related-posts li a:hover {
-  color: #d28445;
-}
-
-/* Yellow */
-.theme-base-0a .sidebar {
-  background-color: #f4bf75;
-}
-.theme-base-0a .content a,
-.theme-base-0a .related-posts li a:hover {
-  color: #f4bf75;
-}
-
-/* Green */
-.theme-base-0b .sidebar {
-  background-color: #90a959;
-}
-.theme-base-0b .content a,
-.theme-base-0b .related-posts li a:hover {
-  color: #90a959;
-}
-
-/* Cyan */
-.theme-base-0c .sidebar {
-  background-color: #75b5aa;
-}
-.theme-base-0c .content a,
-.theme-base-0c .related-posts li a:hover {
-  color: #75b5aa;
-}
-
 /* Blue */
 .theme-base-0d .sidebar {
   background-color: #0a6eaa;
@@ -543,6 +460,15 @@ footer .sub {
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
   color: #003269;
+}
+.theme-base-0d .hero .hero-slogan {
+  color: #003269;
+}
+.theme-base-0d .hero .hero-slogan:after {
+  background-color: #00AAC8;
+}
+.theme-base-0d .author .author-avatar:after {
+  background-color: #00AAC8;
 }
 .theme-base-0d .post {
   color: #606264;
@@ -568,21 +494,6 @@ footer .sub {
 .theme-base-0d footer {
   background-color: #0a6eaa;
 }
-
-/* Magenta */
-.theme-base-0e .sidebar {
-  background-color: #aa759f;
-}
-.theme-base-0e .content a,
-.theme-base-0e .related-posts li a:hover {
-  color: #aa759f;
-}
-
-/* Brown */
-.theme-base-0f .sidebar {
-  background-color: #8f5536;
-}
-.theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
-  color: #8f5536;
+.theme-base-0d .posts .post {
+  border-left-color: #003269;
 }
