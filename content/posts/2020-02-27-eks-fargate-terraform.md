@@ -863,7 +863,7 @@ resource "kubernetes_ingress" "app" {
 {{< / highlight >}}
 
 ## Step 4 - see if it works
-When all these ressources are deployed, we can use `kubectl` to see if everything is up and running. Run the following command in your terminal:
+When all these resources are deployed, we can use `kubectl` to see if everything is up and running. Run the following command in your terminal:
 
 `kubectl get ingress/2048-ingress -n 2048-game`
 
