@@ -21,7 +21,7 @@ The only difference when working with EKS is that we have to add special tags to
 
 - `kubernetes.io/cluster/{clustername}: shared` tag needs to be added to all subnets that the cluster should be able to use
 - `kubernetes.io/role/elb: 1` tag needs to be added to the public subnets so that Kubernetes knows to use only these subnets for public loadbalancers
-- `kubernetes.io/role/internal-elb: 1` tag needs to be added to the private subnets, so that Kubernetes knows to use these subnets for internal loadbalancers (actually not part of this example)
+- `kubernetes.io/role/internal-elb: 1` tag needs to be added to the private subnets, so that Kubernetes knows to use these subnets for internal loadbalancers
 
 You can read more about the Cluster VPC requirements [here](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html), the full Terraform definition of the VPC can be found [here](https://github.com/Finleap/tf-eks-fargate-tmpl/blob/master/vpc/main.tf).
 
@@ -429,7 +429,7 @@ POLICY
 As you can see, with the above profile any pods in the namespace `default` or `2048-game` are run on fargate nodes. Like in the example this setup is based on ([this one](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html)), we will deploy a dockerized version of the 2048 game.
 
 ### Deployment
-Creating a deployment of the said docker image to our cluster is pretty straight-forward: all we need to do is create what in Kubernetes terms is called a "deployment" to run the pod(s) and a "service" to make it accessible for the ingress controller.
+Creating a deployment of the said docker image to our cluster is pretty straight-forward: all we need to do is create what in Kubernetes terms is called a "deployment" to run the pod(s) and a "service" which will act as internal load balancer and make the deployment accessible for the ingress controller.
 
 {{< highlight hcl >}}
 resource "kubernetes_deployment" "app" {
