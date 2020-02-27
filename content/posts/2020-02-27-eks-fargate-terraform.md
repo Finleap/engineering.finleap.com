@@ -1,7 +1,7 @@
 ---
-title: Running a Kubernetes cluster on EKS with Fargate and Terraform
-date: 2020-02-27T12:42:03+01:00
-draft: true,
+title: "Running a Kubernetes cluster on EKS with Fargate and Terraform"
+date: 2020-02-27T09:00:00+01:00
+draft: true
 summary: A simple example on how to run a dockerized application in a Kubernetes cluster with the help of AWS EKS and Fargate, all defined in Terraform
 author: Andreas Jantschnig
 author_position: Engineering Lead
@@ -15,9 +15,9 @@ The target setup should be the same as in the previous ECS example, meaning the 
 TLDR; the resulting template repo can be found here: https://github.com/finleap/tf-eks-fargate-tmpl
 
 ## Step 1 - VPC
-This step I won't describe much here, as it is actually pretty much same setup as in my previous ECS example, which you can find [here](https://engineering.finleap.com/posts/2020-02-20-ecs-fargate-terraform/#vpc)
+This step I won't describe much here, as it is actually pretty much same setup as in my previous ECS example, which you can find [here](https://engineering.finleap.com/posts/2020-02-20-ecs-fargate-terraform/#vpc).
 
-The only difference when working with EKS, we have to add special tags to the subnets in order for Kubernetes to know what the subnets should be used for:
+The only difference when working with EKS is that we have to add special tags to the subnets in order for Kubernetes to know what the subnets should be used for:
 
 - `kubernetes.io/cluster/{clustername}: shared` tag needs to be added to all subnets that the cluster should be able to use
 - `kubernetes.io/role/elb: 1` tag needs to be added to the public subnets so that Kubernetes knows to use only these subnets for public loadbalancers
@@ -208,7 +208,7 @@ resource "aws_eks_node_group" "main" {
 }
 {{< / highlight >}}
 
-You can see that `desired_size` is set to `4`, which is because I chose to use `t2.micro` instances for this demo as they are free-tier elligable, but they also only provide max. 2 IP instances, which means you can only run 2 pods on each instance.
+You can see that `desired_size` is set to `4`, which is because I chose to use `t2.micro` instances for this demo as they are free-tier eligible, but they also only provide max. 2 IP instances, which means you can only run 2 pods on each instance.
 
 Again, the node group requires an attached role in order to communicate with the pods running on it, which is setup as follows:
 
@@ -252,7 +252,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 {{< / highlight >}}
 
 ### kubeconfig
-Now the cluster is ready to be used for deploying some pods to it. But one thing is missing for managing and monitoring the cluster: We need to enable `kubectl` to connect to this cluster, and for this we need to write a kube-config file. In order to do this, we first need two new provider in our Terraform setup:
+Now the cluster is ready to be used for deploying some pods to it. But one thing is missing for managing and monitoring the cluster: We need to enable `kubectl` to connect to this cluster, and for this we need to write a `kube-config` file. In order to do this, we first need two new providers in our Terraform setup:
 
 {{< highlight hcl >}}
 provider "local" {
@@ -426,10 +426,10 @@ POLICY
 }
 {{< / highlight >}}
 
-As you can see, with the above profile any pods in the namespace `default` or `2048-game` are run on fargate nodes. Like in the exapmle this setup is based on ([this one](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html)), we will deploy a dockerized version of the 2048 game.
+As you can see, with the above profile any pods in the namespace `default` or `2048-game` are run on fargate nodes. Like in the example this setup is based on ([this one](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html)), we will deploy a dockerized version of the 2048 game.
 
 ### Deployment
-Creating a deployment of the said docker image to our cluster is pretty straight forward, all we need to do is create what in Kubernetes terms is called a "deployment" to run the pod(s) and a "service" to make it accessible for the ingress controller.
+Creating a deployment of the said docker image to our cluster is pretty straight-forward: all we need to do is create what in Kubernetes terms is called a "deployment" to run the pod(s) and a "service" to make it accessible for the ingress controller.
 
 {{< highlight hcl >}}
 resource "kubernetes_deployment" "app" {
@@ -499,10 +499,9 @@ resource "kubernetes_service" "app" {
 ### Ingress controller
 As mentioned before, in order to be able to access the deployed webapp now from a browser, we need an ALB to connect us to any running pod. In order to create this ALB and also register the available target pods (available through the added service) with the ALB, we now need to add an ingress controller.
 
-> **Note**: The ingress controller is actually the most sophisticated way of > creating an ALB and gives way more routing options than needed for the given example. But by the time of writing this post, the ingress controller was the only way to connect the ALB with the running pods, because of their 
-Fargate configuration.
+> **Note**: The ingress controller is actually the most sophisticated way of creating an ALB and gives way more routing options than needed for the given example. But by the time of writing this post, the ingress controller was the only way to connect the ALB with the running pods, because of their Fargate configuration.
 
-But for the ingress controller to have access rights to create the ALB and also (de-)register target pods at the ALB, we need to create a policy first that will allow that.
+For the ingress controller to have access rights to create the ALB and also (de-)register target pods at the ALB, we need to create a policy first that will allow that.
 
 {{< highlight hcl >}}
 resource "aws_iam_policy" "ALBIngressControllerIAMPolicy" {
@@ -662,7 +661,7 @@ resource "aws_iam_role_policy_attachment" "ALBIngressControllerIAMPolicy" {
 }
 {{< / highlight >}}
 
-Now, in order to connect this IAM role to the cluster, we also need a cluster role for the ingress controller, a service account that is bound to this role and has the previously created IAM role attached.
+Now in order to connect this IAM role to the cluster, we also need a cluster role for the ingress controller, a service account that is bound to this role and has the previously created IAM role attached.
 
 {{< highlight hcl >}}
 resource "kubernetes_cluster_role" "ingress" {
@@ -727,7 +726,7 @@ resource "kubernetes_service_account" "ingress" {
 
 And with this, we can now deploy the ingress controller into our cluster.
 
-> **Note**: I used the `kube-system` namespace here, but this is not mandatory, you could also run it in a separate namespace.
+> **Note**: I used the `kube-system` namespace here, but this is not mandatory - you could also run it in a separate namespace.
 
 {{< highlight hcl >}}
 resource "kubernetes_deployment" "ingress" {
@@ -878,8 +877,10 @@ NAME           HOSTS   ADDRESS                                                  
 If you copy the address in your web browser, you should see the 2048 game. Enjoy!
 
 ## Conclusion
-After having played with ECS before, EKS is a different kind of monster. While with ECS everything is nicely playing together and relatively easy to understand and configure, it took me quiet some time to get this example up and running. I actually also wanted to add autoscaling to the example, but in order to do this you also have to deploy a `metrics-server` to you cluster, which for some reason didn't work very well for me.
+After having played with ECS before, EKS is a different kind of monster. While with ECS everything is nicely playing together and relatively easy to understand and configure, it took me quite some time to get this example up and running.
 
-But this also a great example for the more simple setup with ECS, because there things like autoscaling work basically out of the box, while with Kubernetes you have to fight with the deployment of a separate metrics server in order for the horizontal pod autoscaler to get the metrics it can base up/downscale decissions on.
+I actually also wanted to add autoscaling to the example, but in order to do this you also have to deploy a `metrics-server` to you cluster, which for some reason didn't work very well for me.
+
+This also a great example for the more simple setup with ECS because there things like autoscaling work basically out of the box. With Kubernetes you have to fight with the deployment of a separate metrics server in order for the horizontal pod autoscaler to get the metrics it can base up/downscale decisions on.
 
 I feel Kubernetes is a very powerful system to run highly available applications, but I also feel that until you can confidently operate it, it takes a lot more time than with ECS.
