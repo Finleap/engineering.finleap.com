@@ -26,7 +26,7 @@ jobs:
 
     - name: Upload S3 Contents
       run: |
-        aws s3 sync ./public_html s3://$PROD_AWS_S3_BUCKET --acl public-read --content-encoding 'gzip' --cache-control "public, must-revalidate, proxy-revalidate, max-age=2678400, s-maxage=2678400"
+        aws s3 sync ./public_html s3://$PROD_AWS_S3_BUCKET --acl public-read --cache-control "public, must-revalidate, proxy-revalidate, max-age=2678400, s-maxage=2678400"
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
