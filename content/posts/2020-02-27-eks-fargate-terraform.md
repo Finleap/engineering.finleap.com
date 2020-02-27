@@ -1,7 +1,7 @@
 ---
 title: "Running a Kubernetes cluster on EKS with Fargate and Terraform"
 date: 2020-02-27T09:00:00+01:00
-draft: true
+draft: false
 summary: A simple example on how to run a dockerized application in a Kubernetes cluster with the help of AWS EKS and Fargate, all defined in Terraform
 author: Andreas Jantschnig
 author_position: Engineering Lead
