@@ -335,7 +335,7 @@ resource "aws_iam_openid_connect_provider" "main" {
 }
 {{< / highlight >}}
 
-The tricky part here was that while when creating the OIDC provider with `eksctl` the IODS thumbprint is added automatically, with Terraform we have to take care of this ourselves (which took me quiet some frustrating time to figure out). And as Terraform has no data provider to get the thumbprint, we need to fetch it with an external bash script. To do this, we first need to add a new provider:
+The tricky part here was that while when creating the OIDC provider with `eksctl` the OIDC thumbprint is added automatically, with Terraform we have to take care of this ourselves (which took me quiet some frustrating time to figure out). And as Terraform has no data provider to get the thumbprint, we need to fetch it with an external bash script. To do this, we first need to add a new provider:
 
 {{< highlight hcl >}}
 provider "external" {
@@ -369,7 +369,13 @@ data "external" "thumbprint" {
 {{< / highlight >}}
 
 ### Fargate profile
-In order to run pods in a fargate, aka "serverless", configuration, we first need to create a Fargate profile. This profile defines namespaces and selectors, which are used to identify which pods should be run on the Fargate nodes.
+In order to run pods in a Fargate (aka "serverless") configuration, we first need to create a Fargate profile. This profile defines namespaces and selectors, which are used to identify which pods should be run on the Fargate nodes.
+
+> **Note**: By the time of writing this post, Fargate for EKS is available only in the following regions:
+>- US East (N. Virginia)
+>- US East (Ohio)
+>- Europe (Ireland)
+>- Asia Pacific (Tokyo)
 
 {{< highlight hcl >}}
 resource "aws_eks_fargate_profile" "main" {
@@ -492,6 +498,9 @@ resource "kubernetes_service" "app" {
 
 ### Ingress controller
 As mentioned before, in order to be able to access the deployed webapp now from a browser, we need an ALB to connect us to any running pod. In order to create this ALB and also register the available target pods (available through the added service) with the ALB, we now need to add an ingress controller.
+
+> **Note**: The ingress controller is actually the most sophisticated way of > creating an ALB and gives way more routing options than needed for the given example. But by the time of writing this post, the ingress controller was the only way to connect the ALB with the running pods, because of their 
+Fargate configuration.
 
 But for the ingress controller to have access rights to create the ALB and also (de-)register target pods at the ALB, we need to create a policy first that will allow that.
 
@@ -653,7 +662,7 @@ resource "aws_iam_role_policy_attachment" "ALBIngressControllerIAMPolicy" {
 }
 {{< / highlight >}}
 
-We also need a cluster role for the ingress controller, A service account that is bound to this role and has the previously created IAM policy attached.
+Now, in order to connect this IAM role to the cluster, we also need a cluster role for the ingress controller, a service account that is bound to this role and has the previously created IAM role attached.
 
 {{< highlight hcl >}}
 resource "kubernetes_cluster_role" "ingress" {
@@ -716,7 +725,9 @@ resource "kubernetes_service_account" "ingress" {
 }
 {{< / highlight>}}
 
-And with this, we can now deploy the ingress controller into our cluster. I used the `kube-system` namespace here, but this is not mandatory, you could also run it in a separate namespace.
+And with this, we can now deploy the ingress controller into our cluster.
+
+> **Note**: I used the `kube-system` namespace here, but this is not mandatory, you could also run it in a separate namespace.
 
 {{< highlight hcl >}}
 resource "kubernetes_deployment" "ingress" {
