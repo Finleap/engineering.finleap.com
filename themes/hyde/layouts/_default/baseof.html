@@ -1,6 +1,9 @@
 {{ partial "head.html" . }}
   <body class="{{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}">
   {{ partial "sidebar.html" . }}
+    <div class="hero">
+      <div class="hero-slogan">Get to know what our engineering teams have been doing</div>
+    </div>
     <main class="content container">
     {{ block "main" . -}}{{- end }}
     </main>

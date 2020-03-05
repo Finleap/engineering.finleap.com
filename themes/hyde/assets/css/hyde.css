@@ -303,9 +303,7 @@ footer .sub {
     background-size: cover;
     background-position: center center;
     height: 18rem;
-    margin-top: -4rem;
-    margin-bottom: 3rem;
-    margin: -3rem -5rem 3rem -5rem;
+    margin-left: 18rem;
   }
 
   .hero .hero-slogan {
@@ -319,11 +317,6 @@ footer .sub {
 }
 
 @media (min-width: 64rem) {
-  .hero {
-    margin-left: -5rem;
-    margin-right: -23rem;
-  }
-
   .hero .hero-sogan {
     width: 22rem;
   }
