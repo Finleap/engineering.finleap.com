@@ -9,6 +9,7 @@ author_email: sebastian.weikart@finleap.com
 ---
 
 At **finleap**, we recently started a monthly gathering of engineers across the ecosystem, which includes people from **Finleap Build**, the original company builder, as well as our very own financial Software-as-a-Service company [Finleap Connect](https://connect.finleap.com/), and all the portfolio companies such as [Element](https://www.element.in/), [solarisBank](https://www.solarisbank.com/), [Penta](https://getpenta.com/), [Elinvar](https://elinvar.de/), [Clark](https://www.clark.de/), [Joonko](https://joonko.de/) and more, as well as newly hatched ventures that are building new products from scratch. All of those companies come with their own set of challenges, be it how to hit the market as fast as possible with a high quality product, or operate and run a financial platform with extremely high levels of availability and inpenetrable security. If you want to be part of this, you can find open tech positions across the whole portfolio here: <https://www.finleap.com/careers/tech/>
+
 It's a great opportunity to learn from each other, understand how these challenges were mastered in the past, and share a beer and a laugh together.
 
 At the last meetup in March, I gave a talk about **API Gateways** - a common pattern we what they are, where they came from, and a short and totally subjective overview of the available solutions on the market. I came across this patter and technology in 2014, and was interested in it ever since, following the different development and products that hit the market. In this post I will share my thoughts and the presentation. Please note that some statements are my personal opinions and based on experiences I made in my past career. If you want to discuss them with me, feel free to get in touch.
@@ -116,22 +117,23 @@ When evaluating, I will give a short and completely subjective verdict from my p
 
 #### Cloud Provider Gateways
 
-- Amazon API Gateway
-- APIGee (now Google Cloud)
-- Azure API Gateway
+- Amazon API Gateway: <https://aws.amazon.com/api-gateway/>
+- APIGee (now Google Cloud) - <https://cloud.google.com/apigee>
+- Google Cloud Endpoints - Google actually has another API Gateway Product: <https://cloud.google.com/endpoints>
+- Azure API Gateway: <https://azure.microsoft.com/en-us/services/api-management/>
 
 #### Enterprise Vendors
 
-- Dell Boomi
-- Mulesoft
-- 3Scale (Redhat / IBM)
-- Axway
+- Dell Boomi: <https://boomi.com/>
+- Mulesoft: <https://www.mulesoft.com/>
+- 3Scale (Redhat / IBM): <https://www.3scale.net/>
+- Axway: <https://www.axway.com/>
 
 They all fall firmly in the (expensive) Swiss Army Knife Category.
 
 ### Spring Cloud Gateway
 
-Spring Cloud Gateway was the very first real API Gateway framework, and had it's roots in the famous Netflix Microservices Stack. It's more a toolbox / framework then a standalone product.
+[Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) was the very first real API Gateway framework, and had it's roots in the famous Netflix Microservices Stack. It's more a toolbox / framework then a standalone product.
 
 #### The Good
 
@@ -149,7 +151,7 @@ Conclusion: Great Toolbox and best option to use if you are firmly located withi
 
 ### Kong
 
-Kong is based on proven nginx technology, and open source since 2015, therefore one of the first products in the field. It falls into the Swiss Army Knife Category.
+[Kong](https://konghq.com/) is based on proven nginx technology, and open source since 2015, therefore one of the first products in the field. It falls into the Swiss Army Knife Category.
 
 #### The Good
 
@@ -173,7 +175,7 @@ Hasn‘t aged well in my opinion – complex scaling and operating model, need p
 
 ### Tyk
 
-Tyk was shortly afoot after Kong was released. It is built from scratch in Go and offers a management UI and analytics out of the box. The company offers a managed service. It falls into the Swiss Army Knife Category.
+[Tyk](https://tyk.io/) was shortly afoot after Kong was released. It is built from scratch in Go and offers a management UI and analytics out of the box. The company offers a managed service. It falls into the Swiss Army Knife Category.
 
 #### The Good
 
@@ -196,7 +198,7 @@ Gets expensive fast as you need to pay once you scale out, full operating model 
 
 ### Express Gateway
 
-Based on NodeJS and the proven Express Framework, Express Gateway is one of the newer entrants in the API Gateway Arena.
+Based on NodeJS and the proven Express Framework, [Express Gateway](https://www.express-gateway.io/) is one of the newer entrants in the API Gateway Arena.
 
 #### The Good
 
@@ -217,7 +219,7 @@ A real option, easy to customise and build your own gateway in JavaScript / Node
 
 ### KrakenD
 
-A new, very nimble option build from scratch in Go.
+A new, very nimble option build from scratch in Go is [KrakenD](https://www.krakend.io/).
 
 #### The Good
 
@@ -239,7 +241,7 @@ Yes it‘s a Swiss Army Knife, but more of the small, practical sort. The declar
 
 ### Ambassador
 
-Based on Envoy Proxy, exclusive to Kubernetes
+[Ambassador](https://www.getambassador.io/) is a new player, based on Envoy Proxy, exclusive to Kubernetes
 
 #### The Good
 
@@ -259,7 +261,7 @@ Powerful reverse proxy with added functionality– worth trying if you run K8S.
 
 ### Apollo Gateway
 
-A GraphQL gateway to federate other GraphQL APIs
+[Apollo Gateway](https://www.apollographql.com/docs/apollo-server/api/apollo-gateway/) is a GraphQL gateway to federate other GraphQL APIs
 
 #### The Good
 
@@ -277,7 +279,7 @@ Only for nishe usecase when you want / need to federate other GraphQL APIs.
 
 ### Sqoop
 
-Based on Envoy Proxy just like Ambassador, it is exclusive to Kubernetes. It is an attempt to federate all sorts of APIs into a GraphQL API.
+Based on Envoy Proxy just like Ambassador, [Sqoop](https://sqoop.solo.io/) it is exclusive to Kubernetes. It is an attempt to federate all sorts of APIs into a GraphQL API.
 
 #### The Good
 
