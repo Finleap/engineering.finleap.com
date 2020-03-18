@@ -8,7 +8,7 @@ author_position: Engineering Lead
 author_email: sebastian.weikart@finleap.com
 ---
 
-At **finleap**, we recently started a monthly gathering of engineers across the ecosystem, which includes people from **Finleap Build**, the original company builder, as well as our very own financial Software-as-a-Service company **Finleap Connect**, and all the portfolio companies such as **Element**, **solarisBank**, **Penta**, **Perseus**, **Elinvar**, **Clark**, **Joonko** and more, as well as newly hatched ventures that are building new products from scratch. All of those companies come with their own set of challenges, be it how to hit the market as fast as possible with a high quality product, or operate and run a financial platform with extremely high levels of availability and inpenetrable security.
+At **finleap**, we recently started a monthly gathering of engineers across the ecosystem, which includes people from **Finleap Build**, the original company builder, as well as our very own financial Software-as-a-Service company [Finleap Connect](https://connect.finleap.com/), and all the portfolio companies such as [Element](https://www.element.in/), [solarisBank](https://www.solarisbank.com/), [Penta](https://getpenta.com/), [Elinvar](https://elinvar.de/), [Clark](https://www.clark.de/), [Joonko](https://joonko.de/) and more, as well as newly hatched ventures that are building new products from scratch. All of those companies come with their own set of challenges, be it how to hit the market as fast as possible with a high quality product, or operate and run a financial platform with extremely high levels of availability and inpenetrable security. If you want to be part of this, you can find open tech positions across the whole portfolio here: <https://www.finleap.com/careers/tech/>
 It's a great opportunity to learn from each other, understand how these challenges were mastered in the past, and share a beer and a laugh together.
 
 At the last meetup in March, I gave a talk about **API Gateways** - a common pattern we what they are, where they came from, and a short and totally subjective overview of the available solutions on the market. I came across this patter and technology in 2014, and was interested in it ever since, following the different development and products that hit the market. In this post I will share my thoughts and the presentation. Please note that some statements are my personal opinions and based on experiences I made in my past career. If you want to discuss them with me, feel free to get in touch.
@@ -17,22 +17,22 @@ At the last meetup in March, I gave a talk about **API Gateways** - a common pat
 
 It all started with an architecture pattern that turned into really powerful tools and a whole industry of products out there. Among the abilities are the following:
 
-- It’s an Edge Service – i.e. can sit on the edge of your network
-- It’s a Proxy - it serves as a single access point, exposing a single address to the clients
-- It’s a Reverse Proxy - it is usually deployed infront of many other services
-- It’s a Level 7 load balancer – or even more than that as it can make routing decisions not only based on HTTP headers or content, but also based on custom logic
-- It’s a Router - it can decide where to route a request to. A client doesn't need to know which service exactly is being addressed
-- It provides Access Control - one of the key abilities is to allow or prevent access to your APIs
-- It can translate protocols and formats - while outside clients most likely use HTTP and JSON, inside in your system you might use different protocols and formats like maybe Protocol Buffers or Messaging Systems
-- It takes care of common functionality and help separate concerns in your architecture
-- It can be an API Orchestrator - you can orchestrate different APIs into one single API endpoint
-- It can help to slice and dice a portfolio of APIs to better suit certain use cases (ex. Backend-for-Frontend)
-- Provide an API Portal
+- It’s an **Edge Service** – i.e. can sit on the edge of your network
+- It’s a **Proxy** - it serves as a single access point, exposing a single address to the clients
+- It’s a **Reverse Proxy** - it is usually deployed infront of many other services
+- It’s a **Level 7 load balancer** – or even more than that as it can make routing decisions not only based on HTTP headers or content, but also based on custom logic
+- It’s a **Router** - it can decide where to route a request to. A client doesn't need to know which service exactly is being addressed
+- It provides **Access Control** - one of the key abilities is to allow or prevent access to your APIs
+- It can **translate protocols and formats** - while outside clients most likely use HTTP and JSON, inside in your system you might use different protocols and formats like maybe Protocol Buffers or Messaging Systems
+- It takes care of common functionality and help **separate concerns** in your architecture
+- It can be an **API Orchestrator** - you can orchestrate different APIs into one single API endpoint
+- It can help to slice and dice a portfolio of APIs to better suit certain use cases (ex. **Backend-for-Frontend**)
+- Provide an **API Portal**
 - The silver bullet for all your problems (Quote: Vendor XYZ)
 
 ## Common Patterns
 
-### The "Olden Days"
+### In The "Olden Days"
 
 API Gateways as an architecture pattern was canonized with the arrival of microservices architecture, but it was a well known technique long before that. With the arrival of mobile and Ajax, as well as REST becoming fashionable, an API Gateway was often built a separate Application that was forwarding API Calls from the outside. Maybe you mapped to a legacy SOAP API or to another legacy stack.
 
@@ -77,7 +77,7 @@ A successful solution using API Gateway will soon reach the point where it needs
 
 ### Anti-Patterns
 
-Here is a short list of patterns that can reduce the net profit of productivity you can draw from an API Gateeway:
+Here is a short list of patterns that can reduce benefits you can draw from an API Gateway. In the end, every architecture with API Gateway will gravitate towards a high degree of centralisation, in which lies the greatest peril.
 
 - **Overambitious API Gateway:** Refrain from tendencies that lead to dangerous concentrations of centralization – and to loss of flexibility therefore due to more complex change and deployment procedures. Don’t put too much logic, orchestration etc.. into the API Gateway – this again leads to hazardous levels of centralization. As we say, BFFs are your BFF.
 - **Single Point of Failure:** It is easy to see how an API Gateway becomes a single point of failure. explore ways how to scale out early. Ideally keep it stateless. Some API Gateways have a very neat scaling model.
@@ -245,6 +245,8 @@ Based on Envoy Proxy, exclusive to Kubernetes
 
 - Completely declarative Configuration
 - Based on Envoy means it has already great support for advanced features like Canary Routing and Shadowing
+- Uses K8S-native capabilities for load balancing, service discovery and more
+- Pre-integrates with standard solutions for monitoring
 
 #### The Bad
 
@@ -275,12 +277,14 @@ Only for nishe usecase when you want / need to federate other GraphQL APIs.
 
 ### Sqoop
 
-Based on Envoy Proxy just like Ambassador, it is exclusive to Kubernetes. It is an attempt to federate all Sort of APIs.
+Based on Envoy Proxy just like Ambassador, it is exclusive to Kubernetes. It is an attempt to federate all sorts of APIs into a GraphQL API.
 
 #### The Good
 
-- Adapters for gRPC, Serverless – not just REST or GraphQL
+- Adapters available for gRPC, Serverless – not just REST or GraphQL
 - Based on Envoy means it has already great support for advanced features like Canary Routing and Shadowing
+- Uses K8S-native capabilities for load balancing, service discovery and more
+- Pre-integrates with standard solutions for monitoring
 
 #### The Bad
 
