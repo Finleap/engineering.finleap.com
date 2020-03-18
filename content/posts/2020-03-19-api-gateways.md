@@ -257,7 +257,7 @@ Yes it‘s a Swiss Army Knife, but more of the small, practical sort. The declar
 
 #### Conclusion
 
-Powerful reverse proxy with added functionality– worth trying if you run K8S.
+Powerful reverse proxy with added functionality, worth trying if you run K8S.
 
 ### Apollo Gateway
 
@@ -265,8 +265,8 @@ Powerful reverse proxy with added functionality– worth trying if you run K8S.
 
 #### The Good
 
-- More a Framework kind of thing
-- Made by early GraphQL Adopters
+- More a Framework kind of thing, designed to build your own custom gateway
+- Made by early GraphQL adopters
 
 #### The Bad
 
@@ -275,7 +275,7 @@ Powerful reverse proxy with added functionality– worth trying if you run K8S.
 
 #### Conclusion
 
-Only for nishe usecase when you want / need to federate other GraphQL APIs.
+Only for niche usecase when you want / need to federate other GraphQL APIs.
 
 ### Sqoop
 
@@ -305,4 +305,4 @@ You can find the talk presentation here:
 
 ## The End
 
-That concludes my API Gateway article. Please note, a lot of things written above are my personal opinions. If you have questions or comments, feel free to get in touch with me.
+That concludes my API Gateway overview. Please note, a lot of things written above are my personal opinions. If you have questions or comments, feel free to get in touch with me.
