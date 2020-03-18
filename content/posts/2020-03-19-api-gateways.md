@@ -38,7 +38,7 @@ API Gateways as an architecture pattern was canonized with the arrival of micros
 
 ![API Gateway The History](/apigateway/api-gateway-scenarios-Page-1.png "API Gateways - The History")
 
-### The RPC or CQRS Gateway
+### Gateway for Message-Oriented, RPC or CQRS Architectures
 
 Let's say our backend doesn’t follow REST Architecture. We still need to provide an API for outside clients to connect. We can use asynchronous designs in the backend such as RPC or CQRS using protocols such as JMS, ActiveMQ, RabbitMQ, or Protocol Buffers, or we have a "Service Bus", and messages need go into the bus from the outside. In this case, putting an API Service, aka. API Gateway, in front will do the job, and it will also give us the flexibility to add REST-style Resources. Some products we will discuss later come with adapters for common protocols such as for Kafka, AMQP and more.
 
