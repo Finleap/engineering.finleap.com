@@ -45,15 +45,15 @@ It all started with an architecture pattern that turned into really powerful too
 
 API Gateways as an architecture pattern was canonized with the arrival of microservices architecture, but it was a well-known technique long before that.
 
-With the arrival of mobile and Ajax, as well as REST becoming fashionable, an API Gateway was often built a separate application that was forwarding API Calls from the outside. Maybe you mapped to a legacy SOAP API or to another legacy stack.
+With the arrival of mobile and Ajax, as well as REST becoming fashionable, an API gateway was often built a separate application that was forwarding API calls from the outside. Maybe you mapped to a legacy SOAP API or to another legacy stack.
 
 ![API Gateway The History](/apigateway/api-gateway-scenarios-Page-1.png "API Gateways - The History")
 
 ### Gateway for Message-Oriented, RPC or CQRS Architectures
 
-Let's say our backend doesn’t follow a REST architecture. We still need to provide an API for outside clients to connect. We can use asynchronous designs in the backend such as RPC or CQRS using protocols such as JMS, ActiveMQ, RabbitMQ, or Protocol Buffers, or we have a "Service Bus", and messages need go into the bus from the outside. 
+Let's say our backend doesn’t follow a REST architecture. We still need to provide an API for outside clients to connect. We can use asynchronous designs in the backend such as RPC or CQRS using protocols such as JMS, ActiveMQ, RabbitMQ, or Protocol Buffers or we have a "Service Bus" and messages need go into the bus from the outside. 
 
-In this case, putting an API Service, aka API Gateway, in front will do the job, and it will also give us the flexibility to add REST-style Resources. Some products we will discuss later come with adapters for common protocols such as for Kafka, AMQP and more.
+In this case, putting an API Service, aka API Gateway, in front will do the job, and it will also give us the flexibility to add REST-style resources. Some products we will discuss later come with adapters for common protocols such as for Kafka, AMQP and more.
 
 ![The RPC or CQRS Gateway](/apigateway/api-gateway-scenarios-Page-2.png "The RPC or CQRS Gateway")
 
@@ -292,7 +292,7 @@ Powerful reverse proxy with added functionality, worth trying if you run K8S.
 
 #### The Good
 
-- More a framework kind of thing, designed to build your own custom gateway
+- More of a framework kind of thing, designed to build your own custom gateway
 - Made by early GraphQL adopters
 
 #### The Bad
