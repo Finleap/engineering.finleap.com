@@ -8,7 +8,7 @@ author_position: Engineering Lead
 author_email: andreas.jantschnig@finleap.com
 ---
 
-As described in my previous post (which you can find [here](https://engineering.finleap.com/posts/2020-02-20-ecs-fargate-terraform/)), I recently started exploring the possibilities of IaC. Upon finishing my ECS setup, it was time to try the same thing with a system that seems to be one of the most widely used container management systems: Terraform.
+As described in my previous post (which you can find [here](https://engineering.finleap.com/posts/2020-02-20-ecs-fargate-terraform/)), I recently started exploring the possibilities of IaC. Upon finishing my ECS setup, it was time to try the same thing with a system that seems to be one of the most widely used container management systems: Kubernetes.
 
 The target setup should be the same as in the previous ECS example, meaning the pods should run in a private subnet, communicating with the outside world via a load balancer placed in the public subnet.
 
